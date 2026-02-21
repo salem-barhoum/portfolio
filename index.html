@@ -3,260 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salem Eid Barhoum | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Salem Eid Barhoum | Engineering Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-brown: #795548; /* Deep Professional Brown */
-            --dark-accent: #3e2723;
-            --bg-black: #080808;
-            --card-bg: #121212;
-            --text-light: #f0f0f0;
-            --text-dim: #b0b0b0;
-            --radius: 15px;
-            --transition: all 0.4s ease;
+            /* Burnt Amber - The perfect mix of Brown and Orange */
+            --accent-color: #BF360C; 
+            --hover-glow: #FF5722;
+            --bg-black: #050505;
+            --card-bg: #111111;
+            --text-white: #ffffff;
+            --text-gray: #cccccc;
+            --radius: 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--bg-black); color: var(--text-light); line-height: 1.6; overflow-x: hidden; }
+        
+        body { 
+            background-color: var(--bg-black); 
+            color: var(--text-white); 
+            line-height: 1.8; 
+            overflow-x: hidden; 
+        }
 
-        /* Slow Professional Ticker */
-        .top-ticker {
+        /* --- PROFESSIONAL SLOW STATUS BAR --- */
+        .status-bar {
             width: 100%;
             background: #000;
-            border-bottom: 1px solid var(--dark-accent);
+            border-bottom: 2px solid var(--accent-color);
             position: fixed;
             top: 0;
             z-index: 1000;
-            padding: 8px 0;
+            padding: 12px 0;
         }
 
-        .ticker-move {
+        .status-content {
             display: inline-block;
             white-space: nowrap;
-            animation: moveText 45s linear infinite; /* Very slow and professional */
-            color: var(--primary-brown);
-            font-size: 0.7rem;
-            letter-spacing: 2px;
+            animation: scroll 35s linear infinite;
+            color: var(--accent-color);
+            font-weight: 900;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
-        @keyframes moveText {
+        @keyframes scroll {
             0% { transform: translateX(100%); }
             100% { transform: translateX(-100%); }
         }
 
-        /* Header Section */
+        /* --- HEADER SECTION --- */
         header {
-            padding: 150px 20px 80px 20px;
+            padding: 200px 20px 120px 20px;
             text-align: center;
-            background: linear-gradient(180deg, #101010 0%, #080808 100%);
+            background: radial-gradient(circle at center, #1a0d0a 0%, #050505 100%);
         }
 
         .profile-img {
-            width: 170px;
-            height: 170px;
+            width: 180px;
+            height: 180px;
             border-radius: var(--radius);
-            border: 2px solid var(--primary-brown);
-            margin-bottom: 25px;
+            border: 4px solid var(--accent-color);
+            margin-bottom: 30px;
             object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 0 30px rgba(191, 54, 12, 0.3);
+            transition: var(--transition);
         }
 
-        h1 { font-size: 3rem; letter-spacing: -1px; margin-bottom: 5px; }
-        .sub { color: var(--primary-brown); font-weight: 600; text-transform: uppercase; letter-spacing: 3px; font-size: 0.9rem; margin-bottom: 30px; }
+        .profile-img:hover {
+            transform: scale(1.05) rotate(2deg);
+            border-color: var(--hover-glow);
+            box-shadow: 0 0 50px rgba(255, 87, 34, 0.5);
+        }
 
-        .btn-cv {
-            padding: 15px 35px;
-            background: var(--primary-brown);
+        h1 { font-size: 4rem; font-weight: 900; letter-spacing: -2px; line-height: 1; margin-bottom: 10px; }
+        .role-title { 
+            color: var(--accent-color); 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 5px; 
+            font-size: 1.1rem; 
+            margin-bottom: 40px; 
+        }
+
+        .contact-pill {
+            display: inline-block;
+            background: #151515;
+            padding: 10px 25px;
+            border-radius: 50px;
+            margin-bottom: 40px;
+            border: 1px solid #222;
+        }
+
+        .email-text { text-transform: lowercase; color: var(--text-gray); font-weight: 600; margin: 0 10px; }
+
+        .btn-download {
+            padding: 20px 50px;
+            background: var(--accent-color);
             color: white;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 1.1rem;
             transition: var(--transition);
             display: inline-block;
-            border: 1px solid var(--dark-accent);
+            border: none;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
-        .btn-cv:hover { background: #5d4037; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
 
-        /* Split Layout Container */
-        .main-content {
+        .btn-download:hover {
+            background: var(--hover-glow);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(191, 54, 12, 0.4);
+        }
+
+        /* --- MAIN SPLIT CONTAINER --- */
+        .main-container {
             display: flex;
             flex-wrap: wrap;
-            max-width: 1250px;
-            margin: 40px auto 100px auto; /* Padding between header and data */
-            gap: 30px;
-            padding: 0 25px;
+            max-width: 1300px;
+            margin: 0 auto 100px auto;
+            gap: 40px;
+            padding: 0 30px;
         }
 
-        .column { flex: 1; min-width: 380px; }
+        .col { flex: 1; min-width: 400px; }
 
+        /* --- PROFESSIONAL CARDS --- */
         .card {
             background: var(--card-bg);
-            padding: 35px;
+            padding: 50px; /* Increased PX padding */
             border-radius: var(--radius);
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             border: 1px solid #1a1a1a;
             transition: var(--transition);
+            position: relative;
         }
 
-        .card:hover { border-color: var(--primary-brown); background: #161616; }
+        .card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-10px);
+            background: #161616;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+        }
 
-        h2 { color: var(--primary-brown); font-size: 1.2rem; margin-bottom: 20px; text-transform: uppercase; border-bottom: 1px solid #222; padding-bottom: 10px; }
+        h2 { 
+            color: var(--accent-color); 
+            font-size: 1.5rem; 
+            font-weight: 900; 
+            margin-bottom: 30px; 
+            text-transform: uppercase; 
+            border-left: 6px solid var(--accent-color);
+            padding-left: 20px;
+        }
+
+        .card:hover h2 { color: var(--hover-glow); border-color: var(--hover-glow); }
+
+        h3 { font-size: 1.3rem; font-weight: 700; color: #fff; margin-top: 25px; }
+        .meta-data { color: var(--accent-color); font-weight: 700; font-size: 0.9rem; display: block; margin-bottom: 15px; }
+
+        p, li { color: var(--text-gray); font-size: 1rem; font-weight: 400; }
         
-        h3 { color: #fff; font-size: 1.1rem; margin-top: 15px; }
-        .date-loc { color: var(--primary-brown); font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 10px; }
+        ul { list-style: none; margin-top: 15px; }
+        ul li { margin-bottom: 15px; padding-left: 25px; position: relative; }
+        ul li::before { 
+            content: "■"; 
+            position: absolute; 
+            left: 0; 
+            color: var(--accent-color); 
+            font-size: 0.8rem; 
+        }
 
-        p, li { color: var(--text-dim); font-size: 0.92rem; margin-bottom: 8px; }
-        ul { list-style: none; margin-bottom: 15px; }
-        ul li::before { content: "• "; color: var(--primary-brown); font-weight: bold; }
+        .skill-badge {
+            display: inline-block;
+            background: #1a1412;
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin: 5px;
+            border: 1px solid var(--accent-color);
+            transition: 0.3s;
+        }
 
-        .personal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .tag { display: inline-block; background: #1a1412; color: var(--primary-brown); padding: 4px 12px; border-radius: 5px; font-size: 0.8rem; margin: 3px; border: 1px solid var(--dark-accent); }
+        .skill-badge:hover {
+            background: var(--accent-color);
+            color: #000;
+        }
 
+        /* --- RESPONSIVE TWEAKS --- */
         @media (max-width: 768px) {
-            .column { min-width: 100%; }
-            h1 { font-size: 2.2rem; }
-            header { padding-top: 100px; }
+            .col { min-width: 100%; }
+            h1 { font-size: 2.5rem; }
+            .card { padding: 30px; }
+            header { padding-top: 120px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-ticker">
-        <div class="ticker-move">
-            Salem Eid Barhoum • Informatics Engineering • Software Development • IT Support Specialist • MEAL Officer • Frontend Developer • AI Efficient Workflows •
+    <div class="status-bar">
+        <div class="status-content">
+            Salem Eid Barhoum • Software Engineering Specialist • IT Systems Administrator • Frontend Expert • MEAL Officer • AI Integrated Solutions • 
         </div>
     </div>
 
     <header>
         <img src="profile.jpeg" alt="Salem Eid Barhoum" class="profile-img">
         <h1>Salem Eid Barhoum</h1>
-        <p class="sub">Software Developer & Engineer</p>
-        <div style="margin-bottom: 30px; color: var(--text-dim);">
-            <p style="text-transform: lowercase;"><i class="fas fa-envelope"></i> salmbarhoum1@gmail.com</p>
-            <p><i class="fas fa-phone"></i> +963 992374746</p>
+        <p class="role-title">Informatics Engineer</p>
+        
+        <div class="contact-pill">
+            <span class="email-text"><i class="fas fa-envelope"></i> salmbarhoum1@gmail.com</span>
+            <span class="email-text"><i class="fas fa-phone"></i> +963 992374746</span>
         </div>
-        <a href="Salem-Barhoum-CV.pdf.pdf" download class="btn-cv">DOWNLOAD PDF CV</a>
+        <br>
+        <a href="Salem-Barhoum-CV.pdf.pdf" download class="btn-download">
+            DOWNLOAD FULL DOCUMENT
+        </a>
     </header>
 
-    <div class="main-content">
-        <div class="column">
+    <div class="main-container">
+        <div class="col">
             <div class="card">
                 <h2>Objective</h2>
-                <p>To work in a professional and progressive organization offering challenging work that will enhance my knowledge, and to be able to work in a field which I can utilize my skills which I could go further to gain new experience also to the company's goal.</p>
+                <p><strong>To work in a professional and progressive organization offering challenging work that will enhance my knowledge, and to be able to work in a field which I can utilize my skills which I could go further to gain new experience also to the company's goal.</strong></p>
             </div>
 
             <div class="card">
-                <h2>Personal Information</h2>
-                <div class="personal-grid">
-                    <p><strong>Gender:</strong> Male</p>
-                    <p><strong>Birth:</strong> July 4, 1998</p>
-                    <p><strong>Nationality:</strong> Syrian</p>
-                    <p><strong>Status:</strong> Single</p>
-                </div>
-                <p><strong>Address:</strong> Damascus/Jaramana, Syria</p>
+                <h2>Personal Info</h2>
+                <ul style="display: grid; grid-template-columns: 1fr 1fr;">
+                    <li><strong>Gender:</strong> Male</li>
+                    <li><strong>Nationality:</strong> Syrian</li>
+                    <li><strong>Born:</strong> July 4, 1998</li>
+                    <li><strong>Status:</strong> Single</li>
+                </ul>
+                <p style="padding-left: 25px;"><strong>Address:</strong> Damascus/Jaramana, Syria</p>
             </div>
 
             <div class="card">
                 <h2>Education</h2>
-                <h3>Bachelor’s in Informatics Engineering</h3>
-                <span class="date-loc">Syrian Virtual University (2025-2026)</span>
-                <p>Specialization in Software Development.</p>
+                <h3>Informatics Engineering</h3>
+                <span class="meta-data">Syrian Virtual University | 2025-2026</span>
+                <p>Specialization: Software Development.</p>
                 
-                <h3>High School Certification</h3>
-                <span class="date-loc">Scientific Department (2016)</span>
+                <h3>High School Scientific</h3>
+                <span class="meta-data">Certified Since 2016</span>
             </div>
 
             <div class="card">
-                <h2>Computer Skills</h2>
+                <h2>Computer Expertise</h2>
                 <ul>
-                    <li>Experience in computer operation, MS Office (Windows, Word, Excel, PowerPoint, Access).</li>
-                    <li>Equipment use (Printing, Photo copying, Faxing, etc).</li>
-                    <li>Internet research and use.</li>
-                    <li>Applying AI tools to enhance efficiency and streamline workflows.</li>
+                    <li><strong>Full Mastery:</strong> MS Office (Word, Excel, PPT, Access).</li>
+                    <li><strong>System Ops:</strong> Windows, Printing, Copying, Faxing.</li>
+                    <li><strong>AI Integration:</strong> Leveraging AI tools to optimize efficiency and streamline complex workflows.</li>
                 </ul>
             </div>
 
             <div class="card">
-                <h2>Training & Courses</h2>
-                <div class="tag">IT Technical Support (Coursera)</div>
-                <div class="tag">Advance MEAL (SBK)</div>
-                <div class="tag">Social Inclusion (SBK)</div>
-                <div class="tag">ICDL</div>
-                <div class="tag">Household Electricians</div>
-                <div class="tag">English Language (5 Months)</div>
-                <div class="tag">Driving License (2016)</div>
+                <h2>Training & Certificates</h2>
+                <div class="skill-badge">IT Support (Coursera)</div>
+                <div class="skill-badge">Advance MEAL (SBK)</div>
+                <div class="skill-badge">ICDL</div>
+                <div class="skill-badge">English Language Certification</div>
+                <div class="skill-badge">Social Inclusion</div>
+                <div class="skill-badge">Electrical Tech</div>
+                <div class="skill-badge">Driving License</div>
             </div>
         </div>
 
-        <div class="column">
+        <div class="col">
             <div class="card">
-                <h2>Job Experience</h2>
+                <h2>Professional Experience</h2>
                 
-                <h3>IT Support / System Admin / MEAL Officer</h3>
-                <span class="date-loc">Charitable Action Committee (2020 – 2025)</span>
+                <h3>IT Support / System Admin / MEAL</h3>
+                <span class="meta-data">Charitable Action Committee | 2020 – 2025</span>
                 <ul>
-                    <li>Provided IT support, troubleshooting hardware and software.</li>
-                    <li>Managed user accounts, networks, and backups.</li>
-                    <li>Monitored project performance and prepared evaluation reports.</li>
-                    <li>Conducted field monitoring of humanitarian aid projects.</li>
-                    <li>Implemented IT policies and trained staff on software/MEAL practices.</li>
+                    <li>System administration: network configuration, user accounts, and backups.</li>
+                    <li>Monitored project performance and prepared data evaluation reports.</li>
+                    <li>Field assessments and humanitarian project monitoring.</li>
+                    <li>Staff training on software, MEAL practices, and IT security.</li>
                 </ul>
 
-                <h3>Frontend Developer (Online)</h3>
-                <span class="date-loc">SKYFY Company (2023, 6 months)</span>
+                <h3>Frontend Developer</h3>
+                <span class="meta-data">SKYFY Company | 2023 (6 Months)</span>
                 <ul>
-                    <li>Developed responsive applications using Angular (TS, JS, HTML, CSS).</li>
-                    <li>Optimized for performance and accessibility.</li>
-                    <li>Participated in Agile development and sprint planning.</li>
+                    <li>Developed responsive apps via Angular (TS, JS, HTML, CSS).</li>
+                    <li>Agile sprint planning and code review optimization.</li>
                 </ul>
 
                 <h3>Marketing Officer</h3>
-                <span class="date-loc">Henkel Persil Company (2018 – 2020)</span>
+                <span class="meta-data">Henkel Persil Company | 2018 – 2020</span>
                 <ul>
-                    <li>Developed campaigns to boost visibility and sales.</li>
-                    <li>Conducted market research and competitor analysis.</li>
-                    <li>Managed social media and tracked marketing KPIs.</li>
+                    <li>Implemented marketing campaigns and competitor research.</li>
+                    <li>Tracked KPIs and optimized promotional strategies.</li>
                 </ul>
 
-                <h3>Electricity Regulator Technician</h3>
-                <span class="date-loc">Mora Company (2016 – 2018)</span>
+                <h3>Regulator Technician</h3>
+                <span class="meta-data">Mora Company | 2016 – 2018</span>
                 <ul>
-                    <li>Installed and maintained electrical regulators.</li>
-                    <li>Troubleshot technical issues and performed repairs.</li>
+                    <li>Installation and maintenance of electrical regulators.</li>
                 </ul>
             </div>
 
             <div class="card">
-                <h2>Volunteering</h2>
-                <h3>Volunteer Trainee (Software Dept.)</h3>
-                <span class="date-loc">SSSD (2024, 3 months)</span>
-                <p>Trained in ASP.NET, C#, Entity Framework, Bootstrap, SQL, and GitHub.</p>
+                <h2>Development Projects</h2>
+                <h3>Volunteer Trainee (Software)</h3>
+                <span class="meta-data">SSSD | 2024</span>
+                <p>Hands-on training: ASP.NET, C#, Entity Framework, SQL, and GitHub.</p>
 
-                <h3>Volunteer</h3>
-                <span class="date-loc">Jesus Light of the World Church (2021 – 2022)</span>
-                <p>Aid distribution and community support activities.</p>
+                <h3>Frontend University Projects</h3>
+                <p>Web applications built using <strong>React, JavaScript, Bootstrap, HTML, and CSS.</strong></p>
             </div>
 
             <div class="card">
-                <h2>Highlights & Languages</h2>
-                <p><strong>Languages:</strong> Arabic (Mother tongue), English (Good in all skills).</p>
-                <div style="margin-top: 10px;">
-                    <div class="tag">Revenue generation</div>
-                    <div class="tag">Business development</div>
-                    <div class="tag">Organizational capacity</div>
-                    <div class="tag">Stress Resistance</div>
-                    <div class="tag">Good manners</div>
+                <h2>Key Highlights</h2>
+                <div style="margin-bottom: 20px;">
+                    <div class="skill-badge">Revenue Generation</div>
+                    <div class="skill-badge">Business Development</div>
+                    <div class="skill-badge">Staff Motivation</div>
+                    <div class="skill-badge">Stress Resistance</div>
+                    <div class="skill-badge">Good Manners</div>
                 </div>
+                <p><strong>Languages:</strong> Arabic (Native), English (Good/Professional).</p>
             </div>
         </div>
     </div>
 
-    <footer style="text-align: center; padding: 50px; color: #444; border-top: 1px solid #111; font-size: 0.8rem;">
-        &copy; 2026 Salem Eid Barhoum. All Rights Reserved.
+    <footer style="padding: 80px; text-align: center; background: #000; border-top: 1px solid #111;">
+        <p style="color: var(--accent-color); font-weight: 900; letter-spacing: 2px;">SALEM EID BARHOUM &copy; 2026</p>
     </footer>
 
 </body>
