@@ -25,8 +25,17 @@
             background: rgba(15, 15, 15, 0.9);
         }
         
-        .skill-tag { border: 1px solid #222; padding: 5px 15px; border-radius: 30px; font-size: 0.8rem; background: #080808; transition: 0.3s; }
-        .skill-tag:hover { background: #cc3d00; color: white; border-color: #cc3d00; }
+        .input-style {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid #1a1a1a;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            width: 100%;
+            outline: none;
+            transition: 0.3s;
+        }
+        .input-style:focus { border-color: #cc3d00; background: rgba(255, 255, 255, 0.05); }
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -35,7 +44,7 @@
         <span class="text-2xl font-bold dragon-gradient tracking-tighter">SALEM.B</span>
         <div class="flex items-center gap-6">
             <a href="Salem-Barhoum-CV.pdf" download class="hidden md:block bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-full text-xs font-bold transition">DOWNLOAD CV</a>
-            <a href="https://github.com/salem-barhoum_" target="_blank" class="bg-deep-orange text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg shadow-orange-900/20">GITHUB</a>
+            <a href="#contact" class="bg-deep-orange text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg shadow-orange-900/20">CONTACT</a>
         </div>
     </nav>
 
@@ -49,9 +58,6 @@
         <p class="text-gray-500 text-lg md:text-xl max-w-2xl font-light italic">
             "To work in a professional and progressive organization offering challenging work that will enhance my knowledge."
         </p>
-        <div class="mt-8">
-             <a href="Salem-Barhoum-CV.pdf" download class="md:hidden inline-block bg-white/10 text-white px-6 py-3 rounded-full text-sm font-bold">DOWNLOAD CV</a>
-        </div>
         <div class="mt-10 flex flex-wrap justify-center gap-4 text-sm text-gray-400">
             <span>📍 Damascus, Syria</span>
             <span>📧 salmbarhoum1@gmail.com</span>
@@ -74,11 +80,10 @@
                     <span class="text-gray-500 font-bold mt-2 md:mt-0">2020 — 2026</span>
                 </div>
                 <ul class="grid md:grid-cols-2 gap-4 text-sm text-gray-400">
-                    <li>• Troubleshooting hardware/software issues.</li>
-                    <li>• Managed network configurations & backups.</li>
-                    <li>• Project performance monitoring & data collection.</li>
-                    <li>• Conducted field monitoring for humanitarian aid.</li>
-                    <li>• Training staff on MEAL and IT best practices.</li>
+                    <li>• Hardware/software troubleshooting</li>
+                    <li>• Network configuration & backups</li>
+                    <li>• Project monitoring & evaluation</li>
+                    <li>• Staff training on MEAL & IT</li>
                 </ul>
             </div>
 
@@ -90,61 +95,40 @@
                     </div>
                     <span class="text-gray-500 font-bold mt-2 md:mt-0">2023 (6 Months)</span>
                 </div>
-                <div class="flex flex-wrap gap-2 mb-6">
-                    <span class="skill-tag">Angular</span><span class="skill-tag">TypeScript</span>
-                    <span class="skill-tag">React</span><span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">Bootstrap</span>
-                </div>
-                <p class="text-sm text-gray-400">Developed responsive web applications and collaborated with UI/UX designers.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="glass-card p-8 rounded-3xl">
-                    <span class="text-xs font-bold text-gray-500">2018 — 2020</span>
-                    <h4 class="text-xl font-bold text-white mt-1">Marketing Officer</h4>
-                    <p class="text-deep-orange text-sm mb-4">Henkel Persil Company</p>
-                    <p class="text-sm text-gray-500 leading-relaxed">Developed marketing campaigns and managed social media.</p>
-                </div>
-                <div class="glass-card p-8 rounded-3xl">
-                    <span class="text-xs font-bold text-gray-500">2016 — 2018</span>
-                    <h4 class="text-xl font-bold text-white mt-1">Electricity Regulator Technician</h4>
-                    <p class="text-deep-orange text-sm mb-4">Mora Company</p>
-                    <p class="text-sm text-gray-500 leading-relaxed">Installed and maintained electrical regulators and equipment.</p>
-                </div>
+                <p class="text-sm text-gray-400">Developed responsive web applications using Angular, TypeScript, and React.</p>
             </div>
         </div>
     </section>
 
-    <section id="education" class="py-24 bg-[#050505] px-6">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
-            <div>
-                <h2 class="text-4xl font-bold mb-12 text-white">Education</h2>
-                <div class="glass-card p-8 rounded-3xl border-t-2 border-orange-900">
-                    <h3 class="text-xl font-bold text-white">Bachelor’s in Informatics Engineering</h3>
-                    <p class="text-deep-orange font-bold mt-1">Software Development Specialization</p>
-                    <p class="text-gray-500 mt-2">Syrian Virtual University (2025-2026)</p>
-                </div>
-            </div>
-            <div>
-                <h2 class="text-4xl font-bold mb-12 text-white">Certifications</h2>
-                <div class="grid grid-cols-1 gap-4">
-                    <div class="glass-card p-4 rounded-xl flex items-center gap-4">
-                        <span class="text-sm">IT-Computer Technical Support (Coursera)</span>
+    <section id="contact" class="py-24 px-6 max-w-3xl mx-auto">
+        <div class="glass-card p-10 rounded-3xl">
+            <h2 class="text-4xl font-bold mb-2 text-white">Get In Touch</h2>
+            <p class="text-gray-500 mb-8">Have a project or a role in mind? Let's connect.</p>
+            
+            <form action="https://formspree.io/f/your_form_id" method="POST" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold mb-2 text-gray-400 uppercase">Name</label>
+                        <input type="text" name="name" class="input-style" placeholder="John Doe" required>
                     </div>
-                    <div class="glass-card p-4 rounded-xl flex items-center gap-4">
-                        <span class="text-sm">Advance MEAL & Social Inclusion (SBK)</span>
-                    </div>
-                    <div class="glass-card p-4 rounded-xl flex items-center gap-4">
-                        <span class="text-sm">ICDL & ASP.NET University Training</span>
+                    <div>
+                        <label class="block text-xs font-bold mb-2 text-gray-400 uppercase">Email</label>
+                        <input type="email" name="email" class="input-style" placeholder="john@example.com" required>
                     </div>
                 </div>
-            </div>
+                <div>
+                    <label class="block text-xs font-bold mb-2 text-gray-400 uppercase">Message</label>
+                    <textarea name="message" rows="5" class="input-style" placeholder="Your message here..." required></textarea>
+                </div>
+                <button type="submit" class="w-full bg-deep-orange text-white font-bold py-4 rounded-xl hover:opacity-90 transition shadow-xl shadow-orange-900/20">
+                    SEND MESSAGE
+                </button>
+            </form>
         </div>
     </section>
 
     <footer class="py-20 text-center border-t border-white/5">
         <h2 class="dragon-gradient text-3xl font-bold mb-4">Salem Eid Barhoum</h2>
-        <p class="text-gray-500 text-sm max-w-xs mx-auto mb-8">Ready for new challenges in Software Engineering and IT Management.</p>
         <div class="flex justify-center gap-6">
             <a href="mailto:salmbarhoum1@gmail.com" class="text-deep-orange font-bold">EMAIL</a>
             <a href="https://github.com/salem-barhoum_" class="text-white">GITHUB</a>
