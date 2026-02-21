@@ -3,124 +3,330 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salem Barhoum | Informatics Engineer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Salem Eid Barhoum | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
     <style>
-        :root { --deep-orange: #8a2b00; --bg-dark: #050505; --card-bg: #0d0d0d; }
-        body { background-color: var(--bg-dark); color: #e5e5e5; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; }
-        
-        .main-container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
-
-        /* Split Grid: 2 columns on PC, 1 on Mobile */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+        :root {
+            --primary-orange: #FF8C00;
+            --dark-bg: #0a0a0a;
+            --card-bg: #1a1a1a;
+            --text-main: #ffffff;
+            --text-dim: #b0b0b0;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .bento-card {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Header Section --- */
+        header {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 4px solid var(--primary-orange);
+            padding: 40px 20px;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-orange);
+            margin-bottom: 20px;
+            object-fit: cover;
+            box-shadow: 0 0 25px rgba(255, 140, 0, 0.4);
+        }
+
+        h1 { font-size: 3.2rem; color: var(--primary-orange); text-transform: uppercase; letter-spacing: 2px; }
+        .subtitle { font-size: 1.3rem; color: var(--text-dim); margin-bottom: 15px; font-weight: 300; }
+
+        .contact-info { margin-bottom: 25px; }
+        .contact-link {
+            color: var(--text-dim);
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 10px;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+        .contact-link:hover { color: var(--primary-orange); }
+
+        /* --- Powerful Download Button --- */
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: transparent;
+            color: var(--primary-orange);
+            border: 2px solid var(--primary-orange);
+            padding: 14px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-download:hover {
+            color: #000;
+            box-shadow: 0 0 30px rgba(255, 140, 0, 0.6);
+            transform: scale(1.05);
+        }
+
+        .btn-download::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-orange);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn-download:hover::before {
+            left: 0;
+        }
+
+        /* --- Main Layout (Split View) --- */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: -50px auto 50px auto;
+            gap: 25px;
+            padding: 0 20px;
+        }
+
+        .left-column, .right-column {
+            flex: 1;
+            min-width: 350px;
+        }
+
+        /* --- Card Styling --- */
+        .card {
             background: var(--card-bg);
-            border: 1px solid #1a1a1a;
-            border-radius: 1.5rem;
-            padding: 2rem;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border-left: 0px solid var(--primary-orange);
+            transition: var(--transition);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            position: relative;
         }
 
-        /* Hover fixes: transform resets when finger is lifted */
-        @media (hover: hover) {
-            .bento-card:hover {
-                transform: translateY(-8px);
-                border-color: var(--deep-orange);
-                box-shadow: 0 15px 30px rgba(138, 43, 0, 0.3);
-            }
+        .card:hover {
+            transform: translateY(-8px);
+            border-left: 10px solid var(--primary-orange);
+            background: #252525;
         }
-        .bento-card:active { transform: scale(0.98); }
 
-        .orange-text { color: var(--deep-orange); }
-        .full-width { grid-column: span 2; }
+        h2 {
+            color: var(--primary-orange);
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
+        .job-title { font-weight: 600; color: var(--primary-orange); display: block; margin-top: 12px; font-size: 1.1rem; }
+        .company { font-style: italic; color: var(--text-dim); font-size: 0.95rem; }
+        .date { font-size: 0.85rem; background: #333; padding: 3px 10px; border-radius: 5px; margin-top: 5px; display: inline-block; }
+
+        ul { list-style: none; margin-top: 12px; }
+        ul li::before { content: "→"; color: var(--primary-orange); font-weight: bold; display: inline-block; width: 1.2em; }
+        ul li { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 8px; }
+
+        .skill-tag {
+            display: inline-block;
+            background: #2a2a2a;
+            padding: 6px 15px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            margin: 4px;
+            border: 1px solid #3d3d3d;
+            transition: 0.2s;
+        }
+        .skill-tag:hover { background: var(--primary-orange); color: #000; border-color: var(--primary-orange); }
+
+        /* --- Animations --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- Mobile Responsive --- */
         @media (max-width: 768px) {
-            .bento-grid { grid-template-columns: 1fr; }
-            .full-width { grid-column: span 1; }
+            .container { flex-direction: column; margin-top: 20px; }
+            .left-column, .right-column { min-width: 100%; }
+            h1 { font-size: 2.2rem; }
+            header { min-height: auto; padding: 80px 20px; }
+            .btn-download { width: 100%; justify-content: center; }
         }
-
-        /* Typewriter Cursor Animation */
-        .cursor::after { content: "|"; animation: blink 0.8s infinite; color: var(--deep-orange); }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
     </style>
 </head>
 <body>
 
-    <nav class="p-6 flex justify-between items-center max-w-[1200px] mx-auto">
-        <span class="text-xl font-extrabold tracking-tighter orange-text">SALEM.B</span>
-        <div class="flex gap-3">
-            <a href="Salem-Barhoum-CV.pdf" download class="px-4 py-2 bg-[#111] border border-[#222] rounded-full text-[10px] font-bold uppercase hover:bg-[#8a2b00] transition">CV</a>
+    <header class="animate__animated animate__fadeIn">
+        <img src="profile.jpeg" alt="Salem Eid Barhoum" class="profile-img">
+        <h1 class="animate__animated animate__zoomIn">Salem Eid Barhoum</h1>
+        <p class="subtitle">Software Developer | Informatics Engineer</p>
+        
+        <div class="contact-info">
+            <a href="mailto:salmbarhoum1@gmail.com" class="contact-link" style="text-transform: lowercase;">
+                <i class="fas fa-envelope"></i> salmbarhoum1@gmail.com
+            </a>
+            <span class="contact-link"><i class="fas fa-phone"></i> +963 992374746</span>
         </div>
-    </nav>
 
-    <div class="main-container">
-        <div class="bento-grid">
+        <a href="Salem-Barhoum-CV.pdf.pdf" download class="btn-download animate__animated animate__pulse animate__infinite">
+            <i class="fas fa-file-pdf"></i> Download My CV
+        </a>
+    </header>
+
+    <div class="container">
+        <div class="left-column">
             
-            <div class="bento-card flex flex-col md:flex-row items-center gap-6">
-                <img src="4db042a3-fcd5-4b49-9cc3-2b53130295cb.jpeg" onerror="this.src='https://api.dicebear.com/7.x/initials/svg?seed=SB'" 
-                     class="w-32 h-32 rounded-2xl object-cover grayscale">
-                <div class="text-center md:text-left">
-                    <h1 class="text-3xl font-extrabold mb-1">Salem Barhoum</h1>
-                    <p id="type-text" class="text-xs font-bold orange-text uppercase tracking-widest cursor min-h-[1.2rem]"></p>
-                    <p class="text-[11px] text-gray-500 lowercase mt-4">salmbarhoum1@gmail.com</p>
-                </div>
-            </div>
-
-            <div class="bento-card flex flex-col justify-center">
-                <h3 class="text-[10px] font-bold text-gray-600 uppercase tracking-[0.4em] mb-4">Objective</h3>
-                <p class="text-lg text-gray-300 italic leading-snug">
-                    "Utilizing engineering skills to further both my experience and the company's goals."
+            <section class="card reveal">
+                <h2><i class="fas fa-bullseye"></i> Career Objective</h2>
+                <p style="font-size: 0.95rem; color: var(--text-dim);">
+                    To work in a professional and progressive organization offering challenging work that will enhance my knowledge and contribute effectively to the company's vision while utilizing my software development skills.
                 </p>
-            </div>
+            </section>
 
-            <div class="bento-card full-width">
-                <h3 class="text-[10px] font-bold text-gray-600 uppercase tracking-[0.4em] mb-8">Experience</h3>
-                <div class="space-y-8">
-                    <div class="border-l-2 border-[#8a2b00] pl-6">
-                        <h4 class="font-bold text-xl">IT Support / MEAL Officer</h4>
-                        <p class="text-xs text-gray-500 uppercase">Charitable Action Committee | 2020-2026</p>
-                        <p class="text-sm text-gray-400 mt-2">System administration, hardware maintenance, and data evaluation.</p>
-                    </div>
-                </div>
-            </div>
+            <section class="card reveal">
+                <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                <span class="job-title">Bachelor’s in Informatics Engineering</span>
+                <span class="company">Syrian Virtual University (2025-2026)</span>
+                <p class="date">Specialization: Software Development</p>
+                <br>
+                <span class="job-title">High School Certification</span>
+                <p class="date">Scientific Department (2016)</p>
+            </section>
 
-            <div class="bento-card">
-                <h3 class="text-[10px] font-bold text-gray-600 uppercase tracking-[0.4em] mb-4">Education</h3>
-                <h4 class="font-bold text-lg">Informatics Engineering</h4>
-                <p class="text-xs orange-text font-bold">SVU • Graduating 2026</p>
-            </div>
+            <section class="card reveal">
+                <h2><i class="fas fa-laptop-code"></i> Technical Stack</h2>
+                <div class="skill-tag">Angular</div>
+                <div class="skill-tag">React</div>
+                <div class="skill-tag">ASP.NET</div>
+                <div class="skill-tag">C#</div>
+                <div class="skill-tag">SQL Server</div>
+                <div class="skill-tag">JavaScript (ES6+)</div>
+                <div class="skill-tag">TypeScript</div>
+                <div class="skill-tag">Entity Framework</div>
+                <div class="skill-tag">Bootstrap 5</div>
+                <div class="skill-tag">GitHub/Git</div>
+                <div class="skill-tag">AI Workflow Tools</div>
+            </section>
 
-            <div class="bento-card">
-                <h3 class="text-[10px] font-bold text-gray-600 uppercase tracking-[0.4em] mb-4">Skills</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-2 py-1 bg-white/5 rounded text-[10px] font-bold uppercase">AI Integration</span>
-                    <span class="px-2 py-1 bg-white/5 rounded text-[10px] font-bold uppercase">SQL Server</span>
-                </div>
-            </div>
+            <section class="card reveal">
+                <h2><i class="fas fa-award"></i> Certifications</h2>
+                <ul>
+                    <li>IT-Computer Technical Support (Coursera)</li>
+                    <li>Advance MEAL – Practical Approach (SBK)</li>
+                    <li>International Computer Driving Licence (ICDL)</li>
+                    <li>English Language Proficiency Certification</li>
+                    <li>Household Electrical Systems Technician</li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="right-column">
+            
+            <section class="card reveal">
+                <h2><i class="fas fa-history"></i> Experience</h2>
+                
+                <span class="job-title">IT Support & System Administrator</span>
+                <span class="company">Charitable Action Committee (2020 – 2025)</span>
+                <ul>
+                    <li>Managed server backups, user accounts, and network stability.</li>
+                    <li>Led MEAL officer duties, monitoring project data and evaluations.</li>
+                    <li>Provided hardware/software training for staff members.</li>
+                </ul>
+
+                <hr style="border: 0.5px solid #333; margin: 20px 0;">
+
+                <span class="job-title">Frontend Developer (Remote)</span>
+                <span class="company">SKYFY Company (2023 - 6 Months)</span>
+                <ul>
+                    <li>Built responsive web architectures using Angular.</li>
+                    <li>Collaborated with design teams for high-fidelity UI implementation.</li>
+                    <li>Managed code reviews and technical documentation.</li>
+                </ul>
+
+                <hr style="border: 0.5px solid #333; margin: 20px 0;">
+
+                <span class="job-title">Marketing Officer</span>
+                <span class="company">Henkel Persil Company (2018 – 2020)</span>
+                <ul>
+                    <li>Executed marketing campaigns and competitor market analysis.</li>
+                    <li>Coordinated with sales teams to drive revenue growth.</li>
+                </ul>
+            </section>
+
+            <section class="card reveal">
+                <h2><i class="fas fa-bolt"></i> Professional Highlights</h2>
+                <div class="skill-tag">Revenue Strategy</div>
+                <div class="skill-tag">Business Development</div>
+                <div class="skill-tag">Staff Motivation</div>
+                <div class="skill-tag">Crisis Management</div>
+                <div class="skill-tag">Agile Planning</div>
+            </section>
+
+            <section class="card reveal">
+                <h2><i class="fas fa-language"></i> Languages</h2>
+                <p><strong>Arabic:</strong> Native Proficiency</p>
+                <p><strong>English:</strong> Professional Working Proficiency</p>
+            </section>
         </div>
     </div>
 
-    <script>
-        const text = "Informatics Engineer";
-        let i = 0;
-        const target = document.getElementById("type-text");
+    <footer style="text-align: center; padding: 60px 20px; color: var(--text-dim); font-size: 0.85rem; background: #050505;">
+        <p>Designed for excellence. &copy; 2026 Salem Eid Barhoum.</p>
+    </footer>
 
-        function typeWriter() {
-            if (i < text.length) {
-                target.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
+    <script>
+        // Scroll Reveal Functionality
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 80;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
             }
         }
-        // Start animation after page loads
-        window.addEventListener('load', typeWriter);
-    </script>
 
+        window.addEventListener("scroll", reveal);
+        // Initial run to show visible cards on load
+        reveal();
+    </script>
 </body>
 </html>
