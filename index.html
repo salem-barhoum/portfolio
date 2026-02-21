@@ -36,9 +36,11 @@
             transition: 0.3s;
         }
         .input-style:focus { border-color: #cc3d00; background: rgba(255, 255, 255, 0.05); }
+        .skill-tag { border: 1px solid #222; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; transition: 0.3s; }
+        .skill-tag:hover { background: #cc3d00; color: white; border-color: #cc3d00; }
     </style>
 </head>
-<body class="overflow-x-hidden">
+<body>
 
     <nav class="fixed top-0 w-full z-50 px-8 py-5 flex justify-between items-center bg-black/80 backdrop-blur-md border-b border-white/5">
         <span class="text-2xl font-bold dragon-gradient tracking-tighter">SALEM.B</span>
@@ -55,84 +57,100 @@
                  class="relative w-44 h-44 rounded-full border-2 border-orange-900/50 object-cover grayscale hover:grayscale-0 transition-all duration-700">
         </div>
         <h1 class="text-6xl md:text-8xl font-bold mb-6 tracking-tight">Salem <span class="dragon-gradient">Barhoum</span></h1>
-        <p class="text-gray-500 text-lg md:text-xl max-w-2xl font-light italic">
-            "To work in a professional and progressive organization offering challenging work that will enhance my knowledge."
+        <p class="text-gray-400 text-lg md:text-xl max-w-2xl font-light italic">
+            "Informatics Engineer specializing in Software Development with a proven track record in IT Administration and MEAL."
         </p>
-        <div class="mt-10 flex flex-wrap justify-center gap-4 text-sm text-gray-400">
-            <span>📍 Damascus, Syria</span>
-            <span>📧 salmbarhoum1@gmail.com</span>
-            <span>📱 +963 992374746</span>
+        <div class="mt-10 flex flex-wrap justify-center gap-6 text-sm text-gray-500 uppercase tracking-widest">
+            <span>Damascus, Syria</span>
+            <span>+963 992374746</span>
         </div>
     </section>
 
     <section id="experience" class="py-24 px-6 max-w-5xl mx-auto">
         <h2 class="text-4xl font-bold mb-16 flex items-center gap-4 text-white">
-            <span class="h-px w-12 bg-deep-orange"></span> Work Experience
+            <span class="h-px w-12 bg-deep-orange"></span> Experience
         </h2>
 
-        <div class="space-y-10">
+        <div class="space-y-8">
             <div class="glass-card p-8 rounded-3xl border-l-2 border-orange-800">
-                <div class="flex flex-col md:flex-row justify-between mb-6">
-                    <div>
-                        <h3 class="text-2xl font-bold text-white">IT Support / System Admin & MEAL Officer</h3>
-                        <p class="text-deep-orange font-medium">Charitable Action Committee Organization</p>
-                    </div>
-                    <span class="text-gray-500 font-bold mt-2 md:mt-0">2020 — 2026</span>
+                <div class="flex flex-col md:flex-row justify-between mb-4">
+                    <h3 class="text-2xl font-bold text-white">IT Support / System Admin / MEAL Officer</h3>
+                    <span class="text-deep-orange font-bold">2020 — 2026</span>
                 </div>
-                <ul class="grid md:grid-cols-2 gap-4 text-sm text-gray-400">
-                    <li>• Hardware/software troubleshooting</li>
-                    <li>• Network configuration & backups</li>
-                    <li>• Project monitoring & evaluation</li>
-                    <li>• Staff training on MEAL & IT</li>
+                <p class="text-gray-400 mb-6 italic">Charitable Action Committee Organization</p>
+                <ul class="grid md:grid-cols-2 gap-y-2 text-sm text-gray-500">
+                    <li>• Managed network & user security</li>
+                    <li>• Data evaluation & reporting</li>
+                    <li>• Field project monitoring</li>
+                    <li>• Staff technical training</li>
                 </ul>
             </div>
 
             <div class="glass-card p-8 rounded-3xl border-l-2 border-gray-800">
-                <div class="flex flex-col md:flex-row justify-between mb-6">
-                    <div>
-                        <h3 class="text-2xl font-bold text-white">Frontend Developer (Online)</h3>
-                        <p class="text-deep-orange font-medium">SKYFY Company</p>
-                    </div>
-                    <span class="text-gray-500 font-bold mt-2 md:mt-0">2023 (6 Months)</span>
+                <div class="flex flex-col md:flex-row justify-between mb-4">
+                    <h3 class="text-2xl font-bold text-white">Frontend Developer</h3>
+                    <span class="text-deep-orange font-bold">2023 (6 Months)</span>
                 </div>
-                <p class="text-sm text-gray-400">Developed responsive web applications using Angular, TypeScript, and React.</p>
+                <p class="text-gray-400 mb-6 italic">SKYFY Company</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-tag">Angular</span><span class="skill-tag">React</span>
+                    <span class="skill-tag">TypeScript</span><span class="skill-tag">SQL</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h4 class="font-bold text-white">Marketing Officer</h4>
+                    <p class="text-deep-orange text-xs mb-4">Henkel Persil | 2018-2020</p>
+                    <p class="text-xs text-gray-500 italic">Campaign management & KPI tracking.</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl">
+                    <h4 class="font-bold text-white">Electricity Technician</h4>
+                    <p class="text-deep-orange text-xs mb-4">Mora Company | 2016-2018</p>
+                    <p class="text-xs text-gray-500 italic">Installation & assembly of regulators.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#050505] px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-3xl font-bold mb-8 text-white">Academic</h2>
+                <div class="glass-card p-8 rounded-3xl">
+                    <h4 class="text-xl font-bold text-white">Bachelor's in Informatics Engineering</h4>
+                    <p class="text-deep-orange mt-1">Syrian Virtual University</p>
+                    <p class="text-gray-500 text-sm">Software Development (2025-2026)</p>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-3xl font-bold mb-8 text-white">Certifications</h2>
+                <div class="flex flex-wrap gap-3">
+                    <span class="skill-tag">IT Support (Coursera)</span>
+                    <span class="skill-tag">Advanced MEAL (SBK)</span>
+                    <span class="skill-tag">Social Inclusion</span>
+                    <span class="skill-tag">ICDL</span>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="contact" class="py-24 px-6 max-w-3xl mx-auto">
         <div class="glass-card p-10 rounded-3xl">
-            <h2 class="text-4xl font-bold mb-2 text-white">Get In Touch</h2>
-            <p class="text-gray-500 mb-8">Have a project or a role in mind? Let's connect.</p>
-            
-            <form action="https://formspree.io/f/your_form_id" method="POST" class="space-y-6">
+            <h2 class="text-4xl font-bold mb-8 text-white">Contact Me</h2>
+            <form action="#" class="space-y-6">
                 <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-xs font-bold mb-2 text-gray-400 uppercase">Name</label>
-                        <input type="text" name="name" class="input-style" placeholder="John Doe" required>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold mb-2 text-gray-400 uppercase">Email</label>
-                        <input type="email" name="email" class="input-style" placeholder="john@example.com" required>
-                    </div>
+                    <input type="text" placeholder="Name" class="input-style">
+                    <input type="email" placeholder="Email" class="input-style">
                 </div>
-                <div>
-                    <label class="block text-xs font-bold mb-2 text-gray-400 uppercase">Message</label>
-                    <textarea name="message" rows="5" class="input-style" placeholder="Your message here..." required></textarea>
-                </div>
-                <button type="submit" class="w-full bg-deep-orange text-white font-bold py-4 rounded-xl hover:opacity-90 transition shadow-xl shadow-orange-900/20">
-                    SEND MESSAGE
-                </button>
+                <textarea rows="4" placeholder="Message" class="input-style"></textarea>
+                <button class="w-full bg-deep-orange py-4 rounded-xl font-bold text-white hover:opacity-90 transition">SEND MESSAGE</button>
             </form>
         </div>
     </section>
 
-    <footer class="py-20 text-center border-t border-white/5">
-        <h2 class="dragon-gradient text-3xl font-bold mb-4">Salem Eid Barhoum</h2>
-        <div class="flex justify-center gap-6">
-            <a href="mailto:salmbarhoum1@gmail.com" class="text-deep-orange font-bold">EMAIL</a>
-            <a href="https://github.com/salem-barhoum_" class="text-white">GITHUB</a>
-        </div>
+    <footer class="py-12 text-center text-gray-600 text-xs tracking-widest border-t border-white/5 uppercase">
+        Salem Eid Barhoum © 2026 | Damascus, Syria
     </footer>
 
 </body>
