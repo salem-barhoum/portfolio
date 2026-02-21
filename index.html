@@ -9,9 +9,9 @@
     
     <style>
         :root {
-            /* Burnt Amber - The perfect mix of Brown and Orange */
-            --accent-color: #BF360C; 
-            --hover-glow: #FF5722;
+            /* True Dark Orange */
+            --accent-color: #FF8C00; 
+            --hover-glow: #FFA500;
             --bg-black: #050505;
             --card-bg: #111111;
             --text-white: #ffffff;
@@ -43,7 +43,7 @@
         .status-content {
             display: inline-block;
             white-space: nowrap;
-            animation: scroll 35s linear infinite;
+            animation: scroll 40s linear infinite;
             color: var(--accent-color);
             font-weight: 900;
             font-size: 0.8rem;
@@ -60,7 +60,7 @@
         header {
             padding: 200px 20px 120px 20px;
             text-align: center;
-            background: radial-gradient(circle at center, #1a0d0a 0%, #050505 100%);
+            background: radial-gradient(circle at center, #1a1100 0%, #050505 100%);
         }
 
         .profile-img {
@@ -70,14 +70,14 @@
             border: 4px solid var(--accent-color);
             margin-bottom: 30px;
             object-fit: cover;
-            box-shadow: 0 0 30px rgba(191, 54, 12, 0.3);
+            box-shadow: 0 0 30px rgba(255, 140, 0, 0.3);
             transition: var(--transition);
         }
 
         .profile-img:hover {
-            transform: scale(1.05) rotate(2deg);
+            transform: scale(1.05);
             border-color: var(--hover-glow);
-            box-shadow: 0 0 50px rgba(255, 87, 34, 0.5);
+            box-shadow: 0 0 50px rgba(255, 140, 0, 0.5);
         }
 
         h1 { font-size: 4rem; font-weight: 900; letter-spacing: -2px; line-height: 1; margin-bottom: 10px; }
@@ -104,21 +104,20 @@
         .btn-download {
             padding: 20px 50px;
             background: var(--accent-color);
-            color: white;
+            color: #000; /* Black text on orange button for readability */
             text-decoration: none;
             border-radius: 12px;
             font-weight: 900;
             font-size: 1.1rem;
             transition: var(--transition);
             display: inline-block;
-            border: none;
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
 
         .btn-download:hover {
             background: var(--hover-glow);
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(191, 54, 12, 0.4);
+            box-shadow: 0 15px 30px rgba(255, 140, 0, 0.4);
         }
 
         /* --- MAIN SPLIT CONTAINER --- */
@@ -136,12 +135,11 @@
         /* --- PROFESSIONAL CARDS --- */
         .card {
             background: var(--card-bg);
-            padding: 50px; /* Increased PX padding */
+            padding: 50px; 
             border-radius: var(--radius);
             margin-bottom: 40px;
             border: 1px solid #1a1a1a;
             transition: var(--transition);
-            position: relative;
         }
 
         .card:hover {
@@ -161,12 +159,12 @@
             padding-left: 20px;
         }
 
-        .card:hover h2 { color: var(--hover-glow); border-color: var(--hover-glow); }
+        .card:hover h2 { color: var(--hover-glow); }
 
         h3 { font-size: 1.3rem; font-weight: 700; color: #fff; margin-top: 25px; }
         .meta-data { color: var(--accent-color); font-weight: 700; font-size: 0.9rem; display: block; margin-bottom: 15px; }
 
-        p, li { color: var(--text-gray); font-size: 1rem; font-weight: 400; }
+        p, li { color: var(--text-gray); font-size: 1.05rem; }
         
         ul { list-style: none; margin-top: 15px; }
         ul li { margin-bottom: 15px; padding-left: 25px; position: relative; }
@@ -180,7 +178,7 @@
 
         .skill-badge {
             display: inline-block;
-            background: #1a1412;
+            background: #1a1100;
             color: #fff;
             padding: 8px 18px;
             border-radius: 8px;
@@ -188,12 +186,6 @@
             font-weight: 700;
             margin: 5px;
             border: 1px solid var(--accent-color);
-            transition: 0.3s;
-        }
-
-        .skill-badge:hover {
-            background: var(--accent-color);
-            color: #000;
         }
 
         /* --- RESPONSIVE TWEAKS --- */
@@ -201,7 +193,6 @@
             .col { min-width: 100%; }
             h1 { font-size: 2.5rem; }
             .card { padding: 30px; }
-            header { padding-top: 120px; }
         }
     </style>
 </head>
@@ -236,7 +227,7 @@
             </div>
 
             <div class="card">
-                <h2>Personal Info</h2>
+                <h2>Personal Information</h2>
                 <ul style="display: grid; grid-template-columns: 1fr 1fr;">
                     <li><strong>Gender:</strong> Male</li>
                     <li><strong>Nationality:</strong> Syrian</li>
@@ -250,92 +241,89 @@
                 <h2>Education</h2>
                 <h3>Informatics Engineering</h3>
                 <span class="meta-data">Syrian Virtual University | 2025-2026</span>
-                <p>Specialization: Software Development.</p>
-                
+                <p>Specialization in Software Development.</p>
                 <h3>High School Scientific</h3>
                 <span class="meta-data">Certified Since 2016</span>
             </div>
 
             <div class="card">
-                <h2>Computer Expertise</h2>
+                <h2>Computer Skills</h2>
                 <ul>
-                    <li><strong>Full Mastery:</strong> MS Office (Word, Excel, PPT, Access).</li>
-                    <li><strong>System Ops:</strong> Windows, Printing, Copying, Faxing.</li>
-                    <li><strong>AI Integration:</strong> Leveraging AI tools to optimize efficiency and streamline complex workflows.</li>
+                    <li><strong>MS Office Master:</strong> Windows, Word, Excel, PowerPoint, Access.</li>
+                    <li><strong>Technical Ops:</strong> Printing, Photo copying, Faxing, and Internet research.</li>
+                    <li><strong>AI Strategy:</strong> Applying AI tools to enhance efficiency and streamline workflows.</li>
                 </ul>
             </div>
 
             <div class="card">
-                <h2>Training & Certificates</h2>
+                <h2>Training & Courses</h2>
                 <div class="skill-badge">IT Support (Coursera)</div>
                 <div class="skill-badge">Advance MEAL (SBK)</div>
                 <div class="skill-badge">ICDL</div>
                 <div class="skill-badge">English Language Certification</div>
                 <div class="skill-badge">Social Inclusion</div>
-                <div class="skill-badge">Electrical Tech</div>
-                <div class="skill-badge">Driving License</div>
+                <div class="skill-badge">Household Electricians</div>
             </div>
         </div>
 
         <div class="col">
             <div class="card">
-                <h2>Professional Experience</h2>
+                <h2>Job Experience</h2>
                 
                 <h3>IT Support / System Admin / MEAL</h3>
                 <span class="meta-data">Charitable Action Committee | 2020 – 2025</span>
                 <ul>
-                    <li>System administration: network configuration, user accounts, and backups.</li>
-                    <li>Monitored project performance and prepared data evaluation reports.</li>
-                    <li>Field assessments and humanitarian project monitoring.</li>
-                    <li>Staff training on software, MEAL practices, and IT security.</li>
+                    <li>Managed IT support, network configuration, and system backups.</li>
+                    <li>Monitored project performance and prepared evaluation reports.</li>
+                    <li>Conducted field monitoring for humanitarian aid projects.</li>
+                    <li>Trained staff on software tools and IT best practices.</li>
                 </ul>
 
                 <h3>Frontend Developer</h3>
                 <span class="meta-data">SKYFY Company | 2023 (6 Months)</span>
                 <ul>
-                    <li>Developed responsive apps via Angular (TS, JS, HTML, CSS).</li>
-                    <li>Agile sprint planning and code review optimization.</li>
+                    <li>Developed responsive apps using Angular (TS, JS, HTML, CSS).</li>
+                    <li>Optimized for accessibility and cross-browser compatibility.</li>
                 </ul>
 
                 <h3>Marketing Officer</h3>
                 <span class="meta-data">Henkel Persil Company | 2018 – 2020</span>
                 <ul>
-                    <li>Implemented marketing campaigns and competitor research.</li>
-                    <li>Tracked KPIs and optimized promotional strategies.</li>
+                    <li>Developed marketing campaigns and market research.</li>
+                    <li>Managed social media and tracked performance KPIs.</li>
                 </ul>
 
                 <h3>Regulator Technician</h3>
                 <span class="meta-data">Mora Company | 2016 – 2018</span>
                 <ul>
-                    <li>Installation and maintenance of electrical regulators.</li>
+                    <li>Installed and maintained electrical regulators.</li>
                 </ul>
             </div>
 
             <div class="card">
-                <h2>Development Projects</h2>
+                <h2>Volunteer Experience</h2>
                 <h3>Volunteer Trainee (Software)</h3>
                 <span class="meta-data">SSSD | 2024</span>
-                <p>Hands-on training: ASP.NET, C#, Entity Framework, SQL, and GitHub.</p>
-
-                <h3>Frontend University Projects</h3>
-                <p>Web applications built using <strong>React, JavaScript, Bootstrap, HTML, and CSS.</strong></p>
+                <p>Trained in ASP.NET, C#, Entity Framework, SQL, and GitHub.</p>
+                <h3>Volunteer</h3>
+                <span class="meta-data">Jesus Light of the World Church | 2021 – 2022</span>
+                <p>Organized community support and aid distribution.</p>
             </div>
 
             <div class="card">
-                <h2>Key Highlights</h2>
+                <h2>Professional Highlights</h2>
                 <div style="margin-bottom: 20px;">
                     <div class="skill-badge">Revenue Generation</div>
                     <div class="skill-badge">Business Development</div>
                     <div class="skill-badge">Staff Motivation</div>
                     <div class="skill-badge">Stress Resistance</div>
-                    <div class="skill-badge">Good Manners</div>
                 </div>
-                <p><strong>Languages:</strong> Arabic (Native), English (Good/Professional).</p>
+                <p><strong>Languages:</strong> Arabic (Native), English (Good Proficiency).</p>
             </div>
         </div>
     </div>
 
-    <footer style="padding: 80px; text-align: center; background: #000; border-top: 1px solid #111;">
+    <footer style="padding: 80px; text-align: center; border-top: 1px solid #111;">
         <p style="color: var(--accent-color); font-weight: 900; letter-spacing: 2px;">SALEM EID BARHOUM &copy; 2026</p>
     </footer>
 
