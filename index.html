@@ -10,13 +10,13 @@
     <style>
         :root {
             --accent-color: #A35D00; 
-            --hover-glow: #E68A00;
+            --hover-glow: #C27400;
             --bg-black: #050505;
             --card-bg: #111111;
             --text-white: #ffffff;
             --text-gray: #cccccc;
-            --radius: 20px;
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --radius: 16px;
+            --transition: all 0.3s ease;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
@@ -28,192 +28,165 @@
             overflow-x: hidden; 
         }
 
-        /* --- POWERFUL HEADER --- */
+        /* --- COMPACT & PROFESSIONAL HEADER --- */
         header {
-            padding: 100px 20px;
+            padding: 60px 20px 40px 20px; /* Reduced padding */
             text-align: center;
-            background: radial-gradient(circle at center, #1e1300 0%, #050505 100%);
+            background: radial-gradient(circle at center, #140d00 0%, #050505 100%);
         }
 
         .profile-wrapper {
             position: relative;
             display: inline-block;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border-radius: var(--radius);
+            width: 150px; /* Smaller Photo */
+            height: 150px;
+            border: 2px solid var(--accent-color);
+            transition: var(--transition);
         }
 
         .profile-img {
-            width: 190px;
-            height: 190px;
-            border-radius: var(--radius);
-            border: 4px solid var(--accent-color);
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            position: relative;
-            z-index: 2;
-            transition: var(--transition);
-            filter: grayscale(20%);
+            transition: transform 0.5s ease;
         }
 
-        /* Powerful Hover Effect for Photo */
+        /* Professional Photo Hover: Smooth Zoom + Glow */
+        .profile-wrapper:hover {
+            border-color: var(--hover-glow);
+            box-shadow: 0 0 30px rgba(163, 93, 0, 0.4);
+        }
+
         .profile-wrapper:hover .profile-img {
-            transform: scale(1.05) rotate(1deg);
-            border-color: var(--hover-glow);
-            filter: grayscale(0%);
-            box-shadow: 0 0 50px rgba(163, 93, 0, 0.6);
-        }
-
-        .profile-wrapper::after {
-            content: '';
-            position: absolute;
-            top: -10px; left: -10px; right: -10px; bottom: -10px;
-            border: 2px solid var(--accent-color);
-            border-radius: calc(var(--radius) + 5px);
-            opacity: 0;
-            transition: var(--transition);
-            z-index: 1;
-        }
-
-        .profile-wrapper:hover::after {
-            opacity: 1;
             transform: scale(1.1);
-            border-color: var(--hover-glow);
         }
 
-        h1 { font-size: 3.5rem; font-weight: 900; letter-spacing: -2px; line-height: 1.1; margin-bottom: 10px; }
+        h1 { 
+            font-size: 2.5rem; /* Smaller Name */
+            font-weight: 900; 
+            letter-spacing: -1px; 
+            line-height: 1.2; 
+            margin-bottom: 8px; 
+        }
+
         .role-title { 
             color: var(--accent-color); 
             font-weight: 700; 
             text-transform: uppercase; 
-            letter-spacing: 6px; 
-            font-size: 1.1rem; 
-            margin-bottom: 35px; 
+            letter-spacing: 4px; 
+            font-size: 0.9rem; /* Smaller Title */
+            margin-bottom: 25px; 
         }
 
         .contact-pill {
             display: inline-flex;
             flex-direction: column;
-            background: rgba(21, 21, 21, 0.8);
-            padding: 15px 30px;
-            border-radius: 15px;
-            margin-bottom: 40px;
-            border: 1px solid #333;
-            gap: 5px;
-            backdrop-filter: blur(10px);
+            background: #111;
+            padding: 12px 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 1px solid #222;
+            gap: 4px;
         }
 
-        .email-text { text-transform: lowercase; color: var(--text-gray); font-weight: 600; font-size: 1rem; }
+        .email-text { text-transform: lowercase; color: var(--text-gray); font-weight: 600; font-size: 0.85rem; }
 
-        /* Powerful Hover Effect for Button */
+        /* Compact Powerful Button */
         .btn-download {
-            padding: 22px 50px;
+            padding: 14px 30px; /* Smaller Button */
             background: var(--accent-color);
             color: #fff;
             text-decoration: none;
-            border-radius: 12px;
-            font-weight: 900;
-            font-size: 1.1rem;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             transition: var(--transition);
             display: inline-block;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .btn-download:hover {
             background: var(--hover-glow);
-            transform: translateY(-7px);
-            box-shadow: 0 15px 40px rgba(163, 93, 0, 0.5);
-            color: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(163, 93, 0, 0.4);
         }
-
-        .btn-download::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: 0.6s;
-        }
-
-        .btn-download:hover::before { left: 100%; }
 
         /* --- LAYOUT --- */
         .main-container {
             display: flex;
             flex-wrap: wrap;
-            max-width: 1400px;
-            margin: 0 auto 80px auto;
-            gap: 30px;
-            padding: 0 25px;
+            max-width: 1300px;
+            margin: 0 auto 60px auto;
+            gap: 25px;
+            padding: 0 20px;
         }
 
         .col { flex: 1; min-width: 450px; }
 
         .card {
             background: var(--card-bg);
-            padding: 50px; 
+            padding: 40px; 
             border-radius: var(--radius);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             border: 1px solid #1a1a1a;
             transition: var(--transition);
         }
 
         .card:hover { 
             border-color: var(--accent-color); 
-            background: #161616;
-            transform: translateY(-5px);
+            background: #141414;
         }
 
         h2 { 
             color: var(--accent-color); 
-            font-size: 1.5rem; 
+            font-size: 1.3rem; 
             font-weight: 900; 
-            margin-bottom: 25px; 
+            margin-bottom: 20px; 
             text-transform: uppercase; 
-            border-left: 6px solid var(--accent-color);
-            padding-left: 20px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
         }
 
-        h3 { font-size: 1.25rem; font-weight: 700; color: #fff; margin-top: 25px; }
-        .meta-data { color: var(--accent-color); font-weight: 800; font-size: 0.95rem; display: block; margin-bottom: 12px; }
+        h3 { font-size: 1.15rem; font-weight: 700; color: #fff; margin-top: 20px; }
+        .meta-data { color: var(--accent-color); font-weight: 800; font-size: 0.85rem; display: block; margin-bottom: 10px; }
 
-        p, li { color: var(--text-gray); font-size: 1.05rem; margin-bottom: 10px; }
+        p, li { color: var(--text-gray); font-size: 0.95rem; margin-bottom: 8px; }
         
-        ul { list-style: none; margin-top: 15px; }
-        ul li { margin-bottom: 14px; padding-left: 30px; position: relative; }
+        ul { list-style: none; margin-top: 12px; }
+        ul li { margin-bottom: 10px; padding-left: 25px; position: relative; }
         ul li::before { 
             content: "■"; 
             position: absolute; 
             left: 0; 
             color: var(--accent-color); 
-            font-size: 0.9rem; 
+            font-size: 0.8rem; 
         }
 
         .skill-badge {
             display: inline-block;
             background: #1a1000;
             color: #fff;
-            padding: 8px 18px;
-            border-radius: 8px;
-            font-size: 0.9rem;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.8rem;
             font-weight: 700;
-            margin: 6px;
+            margin: 4px;
             border: 1px solid var(--accent-color);
-            transition: 0.3s;
         }
 
-        .skill-badge:hover { background: var(--accent-color); color: #000; }
-
-        /* --- MOBILE TOGGLE --- */
+        /* --- MOBILE TOGGLE SCALE --- */
         @media (max-width: 768px) {
             .col { min-width: 100%; }
-            h1 { font-size: 2.5rem; }
-            .card { padding: 30px; }
-            .profile-img { width: 150px; height: 150px; }
-            header { padding: 60px 20px; }
+            h1 { font-size: 2rem; }
+            .card { padding: 25px; }
+            .profile-wrapper { width: 120px; height: 120px; }
+            header { padding: 40px 15px; }
+            .btn-download { width: 100%; text-align: center; }
         }
     </style>
 </head>
@@ -249,7 +222,7 @@
                     <li><strong>Nationality:</strong> Syrian</li>
                     <li><strong>Status:</strong> Single</li>
                 </ul>
-                <p style="padding-left: 30px; margin-top: 10px;"><strong>Address:</strong> Damascus/Jaramana, Syria</p>
+                <p style="padding-left: 25px; margin-top: 10px;"><strong>Address:</strong> Damascus/Jaramana, Syria</p>
             </div>
 
             <div class="card">
@@ -330,7 +303,7 @@
             <div class="card">
                 <h2>Projects & Volunteering</h2>
                 <h3>Volunteer Trainee (Software Dept)</h3>
-                <span class="meta-data">Syrian Society for Social Development | 2024</span>
+                <span class="meta-data">SSSD | 2024</span>
                 <p>Trained in ASP.NET, C#, Entity Framework, Bootstrap, SQL, and GitHub.</p>
 
                 <h3>University Projects - Frontend</h3>
@@ -356,8 +329,8 @@
         </div>
     </div>
 
-    <footer style="padding: 60px; text-align: center; border-top: 1px solid #111; background: #000;">
-        <p style="color: var(--accent-color); font-weight: 900; letter-spacing: 2px;">SALEM EID BARHOUM &copy; 2026</p>
+    <footer style="padding: 40px; text-align: center; border-top: 1px solid #111;">
+        <p style="color: var(--accent-color); font-weight: 900; letter-spacing: 2px; font-size: 0.8rem;">SALEM EID BARHOUM &copy; 2026</p>
     </footer>
 
 </body>
