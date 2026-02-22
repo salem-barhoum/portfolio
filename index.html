@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Salem Eid Barhoum | Engineering Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            /* Your Specific Dark Orange/Gold Color */
-            --accent-color: #BD8E02; 
-            --hover-glow: #E6AE02;
+            /* NEW COLOR: Deep Earthy Orange (Brownish-Orange) */
+            --accent-color: #A35D00; 
+            --hover-glow: #C27400;
             --bg-black: #050505;
             --card-bg: #111111;
             --text-white: #ffffff;
@@ -25,146 +25,151 @@
         body { 
             background-color: var(--bg-black); 
             color: var(--text-white); 
-            line-height: 1.8; 
+            line-height: 1.6; 
             overflow-x: hidden; 
         }
 
         /* --- HEADER SECTION --- */
         header {
-            padding: 100px 20px 100px 20px;
+            padding: 80px 20px;
             text-align: center;
-            background: radial-gradient(circle at center, #1a1500 0%, #050505 100%);
+            background: radial-gradient(circle at center, #1a1000 0%, #050505 100%);
         }
 
         .profile-img {
-            width: 180px;
-            height: 180px;
+            width: 160px;
+            height: 160px;
             border-radius: var(--radius);
-            border: 4px solid var(--accent-color);
-            margin-bottom: 30px;
+            border: 3px solid var(--accent-color);
+            margin-bottom: 25px;
             object-fit: cover;
-            box-shadow: 0 0 30px rgba(189, 142, 2, 0.3);
+            box-shadow: 0 0 25px rgba(163, 93, 0, 0.2);
             transition: var(--transition);
         }
 
         .profile-img:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
             border-color: var(--hover-glow);
-            box-shadow: 0 0 50px rgba(189, 142, 2, 0.5);
+            box-shadow: 0 0 40px rgba(163, 93, 0, 0.4);
         }
 
-        h1 { font-size: 2.5rem; font-weight: 900; letter-spacing: -2px; line-height: 1; margin-bottom: 10px; }
+        h1 { font-size: 2.8rem; font-weight: 900; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 10px; }
+        
         .role-title { 
             color: var(--accent-color); 
             font-weight: 700; 
             text-transform: uppercase; 
-            letter-spacing: 5px; 
-            font-size: 1.1rem; 
-            margin-bottom: 40px; 
+            letter-spacing: 4px; 
+            font-size: 0.95rem; 
+            margin-bottom: 30px; 
         }
 
         .contact-pill {
-            display: inline-block;
+            display: inline-flex;
+            flex-direction: column;
             background: #151515;
-            padding: 10px 25px;
-            border-radius: 50px;
-            margin-bottom: 40px;
+            padding: 15px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
             border: 1px solid #222;
+            gap: 5px;
         }
 
-        .email-text { text-transform: lowercase; color: var(--text-gray); font-weight: 600; margin: 0 10px; }
+        .email-text { text-transform: lowercase; color: var(--text-gray); font-weight: 600; font-size: 0.9rem; }
 
         .btn-download {
-            padding: 20px 50px;
+            padding: 15px 35px;
             background: var(--accent-color);
-            color: #000;
+            color: #fff;
             text-decoration: none;
-            border-radius: 12px;
+            border-radius: 10px;
             font-weight: 900;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: var(--transition);
             display: inline-block;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.4);
         }
 
         .btn-download:hover {
             background: var(--hover-glow);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(189, 142, 2, 0.4);
+            transform: translateY(-3px);
         }
 
-        /* --- MAIN SPLIT CONTAINER --- */
+        /* --- MAIN CONTAINER --- */
         .main-container {
             display: flex;
             flex-wrap: wrap;
-            max-width: 1300px;
-            margin: 0 auto 100px auto;
-            gap: 40px;
-            padding: 0 30px;
+            max-width: 1200px;
+            margin: 0 auto 60px auto;
+            gap: 25px;
+            padding: 0 20px;
         }
 
         .col { flex: 1; min-width: 400px; }
 
-        /* --- PROFESSIONAL CARDS --- */
+        /* --- CARDS --- */
         .card {
             background: var(--card-bg);
-            padding: 50px; 
+            padding: 40px; 
             border-radius: var(--radius);
-            margin-bottom: 40px;
+            margin-bottom: 25px;
             border: 1px solid #1a1a1a;
             transition: var(--transition);
         }
 
         .card:hover {
             border-color: var(--accent-color);
-            transform: translateY(-10px);
             background: #161616;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
         }
 
         h2 { 
             color: var(--accent-color); 
-            font-size: 1.5rem; 
+            font-size: 1.3rem; 
             font-weight: 900; 
-            margin-bottom: 30px; 
+            margin-bottom: 25px; 
             text-transform: uppercase; 
-            border-left: 6px solid var(--accent-color);
-            padding-left: 20px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
         }
 
-        h3 { font-size: 1.3rem; font-weight: 700; color: #fff; margin-top: 25px; }
-        .meta-data { color: var(--accent-color); font-weight: 700; font-size: 0.9rem; display: block; margin-bottom: 15px; }
+        h3 { font-size: 1.15rem; font-weight: 700; color: #fff; margin-top: 20px; }
+        .meta-data { color: var(--accent-color); font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 12px; }
 
-        p, li { color: var(--text-gray); font-size: 1.05rem; }
+        p, li { color: var(--text-gray); font-size: 0.95rem; }
         
-        ul { list-style: none; margin-top: 15px; }
-        ul li { margin-bottom: 15px; padding-left: 25px; position: relative; }
+        ul { list-style: none; margin-top: 10px; }
+        ul li { margin-bottom: 10px; padding-left: 20px; position: relative; }
         ul li::before { 
             content: "■"; 
             position: absolute; 
             left: 0; 
             color: var(--accent-color); 
-            font-size: 0.8rem; 
+            font-size: 0.7rem; 
         }
 
         .skill-badge {
             display: inline-block;
-            background: #1a1500;
+            background: #1a1000;
             color: #fff;
-            padding: 8px 18px;
-            border-radius: 8px;
-            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.8rem;
             font-weight: 700;
-            margin: 5px;
+            margin: 4px;
             border: 1px solid var(--accent-color);
         }
 
-        /* --- RESPONSIVE TWEAKS --- */
+        /* --- MOBILE TOGGLE LOGIC --- */
         @media (max-width: 768px) {
             .col { min-width: 100%; }
-            h1 { font-size: 2.5rem; }
-            .card { padding: 30px; }
-            header { padding-top: 60px; }
+            h1 { font-size: 2.1rem; }
+            .card { padding: 25px; margin-bottom: 15px; }
+            header { padding: 40px 15px; }
+            .profile-img { width: 130px; height: 130px; }
+            .btn-download { width: 100%; padding: 15px; text-align: center; }
+            .main-container { gap: 15px; padding: 0 15px; }
+            h2 { font-size: 1.1rem; margin-bottom: 15px; }
+            p, li { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -193,14 +198,14 @@
             </div>
 
             <div class="card">
-                <h2>Personal Information</h2>
-                <ul style="display: grid; grid-template-columns: 1fr 1fr;">
+                <h2>Personal Info</h2>
+                <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
                     <li><strong>Gender:</strong> Male</li>
                     <li><strong>Nationality:</strong> Syrian</li>
                     <li><strong>Born:</strong> July 4, 1998</li>
                     <li><strong>Status:</strong> Single</li>
                 </ul>
-                <p style="padding-left: 25px;"><strong>Address:</strong> Damascus/Jaramana, Syria</p>
+                <p style="margin-top: 10px;"><strong>Address:</strong> Damascus/Jaramana, Syria</p>
             </div>
 
             <div class="card">
@@ -220,16 +225,6 @@
                     <li><strong>AI Strategy:</strong> Applying AI tools to enhance efficiency and streamline workflows.</li>
                 </ul>
             </div>
-
-            <div class="card">
-                <h2>Training & Courses</h2>
-                <div class="skill-badge">IT Support (Coursera)</div>
-                <div class="skill-badge">Advance MEAL (SBK)</div>
-                <div class="skill-badge">ICDL</div>
-                <div class="skill-badge">English Language Certification</div>
-                <div class="skill-badge">Social Inclusion</div>
-                <div class="skill-badge">Household Electricians</div>
-            </div>
         </div>
 
         <div class="col">
@@ -239,56 +234,48 @@
                 <span class="meta-data">Charitable Action Committee | 2020 – 2026</span>
                 <ul>
                     <li>Managed IT support, network configuration, and system backups.</li>
-                    <li>Monitored project performance and prepared evaluation reports.</li>
-                    <li>Conducted field monitoring for humanitarian aid projects.</li>
+                    <li>Monitored project performance and evaluation reports.</li>
                     <li>Trained staff on software tools and IT best practices.</li>
                 </ul>
 
                 <h3>Frontend Developer</h3>
-                <span class="meta-data">SKYFY Company | 2023 (6 Months)</span>
+                <span class="meta-data">SKYFY Company | 2023</span>
                 <ul>
                     <li>Developed responsive apps using Angular (TS, JS, HTML, CSS).</li>
-                    <li>Optimized for accessibility and cross-browser compatibility.</li>
                 </ul>
 
                 <h3>Marketing Officer</h3>
                 <span class="meta-data">Henkel Persil Company | 2018 – 2020</span>
-                <ul>
-                    <li>Developed marketing campaigns and market research to boost visibility.</li>
-                </ul>
-
-                <h3>Regulator Technician</h3>
-                <span class="meta-data">Mora Company | 2016 – 2018</span>
-                <ul>
-                    <li>Installed and maintained electrical regulators and equipment.</li>
-                </ul>
+                <p>Marketing campaigns and research to boost visibility.</p>
             </div>
 
             <div class="card">
-                <h2>Volunteer Experience</h2>
-                <h3>Volunteer Trainee (Software)</h3>
-                <span class="meta-data">SSSD | 2024</span>
-                <p>Trained in ASP.NET, C#, Entity Framework, SQL, and GitHub.</p>
-                <h3>Volunteer</h3>
-                <span class="meta-data">Jesus Light of the World Church | 2021 – 2022</span>
-                <p>Organized community support and aid distribution.</p>
-            </div>
-
-            <div class="card">
-                <h2>Professional Highlights</h2>
-                <div style="margin-bottom: 20px;">
+                <h2>Training & Highlights</h2>
+                <div style="margin-bottom: 15px;">
+                    <div class="skill-badge">IT Support (Coursera)</div>
+                    <div class="skill-badge">Advance MEAL (SBK)</div>
+                    <div class="skill-badge">ICDL</div>
+                    <div class="skill-badge">Social Inclusion</div>
+                </div>
+                <div style="margin-bottom: 15px;">
                     <div class="skill-badge">Revenue Generation</div>
                     <div class="skill-badge">Business Development</div>
-                    <div class="skill-badge">Staff Motivation</div>
                     <div class="skill-badge">Stress Resistance</div>
                 </div>
                 <p><strong>Languages:</strong> Arabic (Native), English (Good Proficiency).</p>
             </div>
+
+            <div class="card">
+                <h2>Volunteering</h2>
+                <h3>Software Trainee</h3>
+                <span class="meta-data">SSSD | 2024</span>
+                <p>ASP.NET, C#, Entity Framework, SQL, and GitHub.</p>
+            </div>
         </div>
     </div>
 
-    <footer style="padding: 80px; text-align: center; border-top: 1px solid #111;">
-        <p style="color: var(--accent-color); font-weight: 900; letter-spacing: 2px;">SALEM EID BARHOUM &copy; 2026</p>
+    <footer style="padding: 40px; text-align: center; border-top: 1px solid #111;">
+        <p style="color: var(--accent-color); font-weight: 900; letter-spacing: 2px; font-size: 0.8rem;">SALEM EID BARHOUM &copy; 2026</p>
     </footer>
 
 </body>
