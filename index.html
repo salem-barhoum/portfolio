@@ -9,9 +9,9 @@
     
     <style>
         :root {
-            --accent-color: #00f2fe; 
-            --hover-glow: #4facfe;
-            --bg-black: #050505;
+            --accent-color: #A35D00; /* Restored original gold/orange accent */
+            --hover-glow: #C27400;
+            --bg-black: #050505; /* Solid black as requested */
             --card-bg: #111111;
             --text-white: #ffffff;
             --text-gray: #cccccc;
@@ -32,7 +32,7 @@
         header {
             padding: 60px 20px 40px 20px;
             text-align: center;
-            background: radial-gradient(circle at center, #001f3f 0%, #050505 100%);
+            background: var(--bg-black);
         }
 
         .profile-wrapper {
@@ -56,7 +56,7 @@
 
         .profile-wrapper:hover {
             border-color: var(--hover-glow);
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.4);
+            box-shadow: 0 0 30px rgba(163, 93, 0, 0.4);
         }
 
         .profile-wrapper:hover .profile-img {
@@ -93,7 +93,7 @@
 
         .email-text { text-transform: lowercase; color: var(--text-gray); font-weight: 600; font-size: 0.85rem; }
 
-        /* Button Group */
+        /* --- BUTTONS --- */
         .btn-group {
             display: flex;
             justify-content: center;
@@ -112,18 +112,19 @@
             transition: var(--transition);
             display: inline-block;
             cursor: pointer;
+            border: none;
         }
 
         .btn-download {
             background: var(--accent-color);
-            color: #000;
+            color: #fff;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .btn-download:hover {
             background: var(--hover-glow);
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 242, 254, 0.4);
+            box-shadow: 0 8px 25px rgba(163, 93, 0, 0.4);
         }
 
         .btn-github {
@@ -146,15 +147,16 @@
         .btn-nav:hover {
             transform: translateY(-3px);
             background: #f0f0f0;
+            box-shadow: 0 5px 15px rgba(255,255,255,0.2);
         }
 
-        /* --- LAYOUT & PADDING --- */
+        /* --- CONTENT PADDING & LAYOUT --- */
         .main-container {
             display: flex;
             flex-wrap: wrap;
             max-width: 1300px;
             margin: 40px auto;
-            gap: 25px; /* Spacing between columns */
+            gap: 25px;
             padding: 0 20px;
         }
 
@@ -164,7 +166,7 @@
             background: var(--card-bg);
             padding: 40px; 
             border-radius: var(--radius);
-            margin-bottom: 25px; /* Spacing between vertical divs */
+            margin-bottom: 25px;
             border: 1px solid #1a1a1a;
             transition: var(--transition);
         }
@@ -188,7 +190,6 @@
         .meta-data { color: var(--accent-color); font-weight: 800; font-size: 0.85rem; display: block; margin-bottom: 10px; }
 
         p, li { color: var(--text-gray); font-size: 0.95rem; margin-bottom: 8px; }
-        
         ul { list-style: none; margin-top: 12px; }
         ul li { margin-bottom: 10px; padding-left: 25px; position: relative; }
         ul li::before { 
@@ -201,7 +202,7 @@
 
         .skill-badge {
             display: inline-block;
-            background: #001a1a;
+            background: #1a1000;
             color: #fff;
             padding: 6px 14px;
             border-radius: 6px;
@@ -211,7 +212,7 @@
             border: 1px solid var(--accent-color);
         }
 
-        /* --- SLIDESHOW SECTION --- */
+        /* --- DESIGN SECTION --- */
         #design-section {
             max-width: 1300px;
             margin: 60px auto;
@@ -236,7 +237,7 @@
         .slides img {
             width: 100%;
             max-height: 600px;
-            object-fit: contain; /* Shows image in full */
+            object-fit: contain; /* Full visibility, no cropping */
             background: #000;
         }
 
@@ -249,7 +250,7 @@
             top: 40%;
             padding: 16px;
             color: white;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0,0,0,0.8);
             border-radius: 50%;
             transition: 0.3s;
         }
@@ -259,7 +260,6 @@
         @media (max-width: 768px) {
             .col { min-width: 100%; }
             h1 { font-size: 2rem; }
-            header { padding: 40px 15px; }
         }
     </style>
 </head>
@@ -278,7 +278,7 @@
         </div>
         <br>
         <div class="btn-group">
-            <a href="#design-section" class="btn-general btn-nav">View Designs</a>
+            <a href="#design-section" class="btn-general btn-nav">View Ad Designs</a>
             <a href="Salem-Barhoum-CV.pdf" download class="btn-general btn-download">Download Full CV</a>
             <a href="https://github.com/salem-barhoum" target="_blank" class="btn-general btn-github">
                 <i class="fab fa-github"></i> GitHub Profile
@@ -315,11 +315,11 @@
             </div>
 
             <div class="card">
-                <h2>Design & AI Skills</h2>
-                <div class="skill-badge">Midjourney & Gemini AI</div>
+                <h2>AI Design & Canva Skills</h2>
+                <div class="skill-badge">Generative AI (Gemini/Midjourney)</div>
                 <div class="skill-badge">Canva Pro</div>
                 <div class="skill-badge">Prompt Engineering</div>
-                <div class="skill-badge">Meta Ad Creative Design</div>
+                <div class="skill-badge">Creative Ad Design</div>
             </div>
 
             <div class="card">
@@ -363,7 +363,6 @@
                 <ul>
                     <li>Developed and implemented marketing campaigns to boost visibility.</li>
                     <li>Conducted market research and competitor analysis.</li>
-                    <li>Coordinated with sales teams to optimize promotional strategies.</li>
                     <li>Managed social media channels and promotional materials.</li>
                 </ul>
 
@@ -393,33 +392,34 @@
 
     <section id="design-section">
         <div class="slider-wrapper">
-            <h2>AI Design Portfolio</h2>
+            <h2 style="border:none; text-align:center; padding:0; margin-bottom:30px;">Featured Ad Designs</h2>
             <div class="slider-container">
                 <div class="slides">
                     <img src="Design1.png">
                     <div class="slide-desc">
                         <h3>Hearth & Harvest Sourdough</h3>
-                        <p>Focusing on sensory action and freshness for high-impact social media ads.</p>
+                        <p>Action-oriented creative focused on sensory triggers for fresh bakery goods.</p>
                     </div>
                 </div>
                 <div class="slides">
                     <img src="Design2.png">
                     <div class="slide-desc">
                         <h3>Wildflower Honey</h3>
-                        <p>Visualizing purity and organic origin through natural, rustic aesthetics.</p>
+                        <p>Natural purity concept using rustic apiary aesthetics to establish trust.</p>
                     </div>
                 </div>
                 <div class="slides">
                     <img src="Design3.png">
                     <div class="slide-desc">
                         <h3>Flour & Field Artisan Pasta</h3>
-                        <p>Macro-texture visual emphasizing old-world craftsmanship and premium ingredients.</p>
+                        <p>Macro-texture design highlighting handcrafted quality and premium ingredients.</p>
                     </div>
                 </div>
                 <div class="slides">
-                    <img src="slides/Design4.png"> <div class="slide-desc">
+                    <img src="Design4.png">
+                    <div class="slide-desc">
                         <h3>Nectar Cola</h3>
-                        <p>Meta-optimized creative highlighting extreme refreshment through sensory chill effects.</p>
+                        <p>Hyper-realistic sensory chill creative optimized for social media engagement.</p>
                     </div>
                 </div>
 
