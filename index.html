@@ -9,12 +9,12 @@
     
     <style>
         :root {
-            --accent-color: #A35D00; /* Restored original gold/orange accent */
-            --hover-glow: #C27400;
-            --bg-black: #050505; /* Solid black as requested */
-            --card-bg: #111111;
+            --accent-color: #00f2fe; /* Electric Blue */
+            --hover-glow: #4facfe;   /* Midnight Blue */
+            --bg-black: #020617;     /* Deep Midnight Black */
+            --card-bg: #0f172a;      /* Navy Card Background */
             --text-white: #ffffff;
-            --text-gray: #cccccc;
+            --text-gray: #94a3b8;
             --radius: 16px;
             --transition: all 0.3s ease;
         }
@@ -32,7 +32,7 @@
         header {
             padding: 60px 20px 40px 20px;
             text-align: center;
-            background: var(--bg-black);
+            background: radial-gradient(circle at center, #1e293b 0%, #020617 100%);
         }
 
         .profile-wrapper {
@@ -56,7 +56,7 @@
 
         .profile-wrapper:hover {
             border-color: var(--hover-glow);
-            box-shadow: 0 0 30px rgba(163, 93, 0, 0.4);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.4);
         }
 
         .profile-wrapper:hover .profile-img {
@@ -83,11 +83,11 @@
         .contact-pill {
             display: inline-flex;
             flex-direction: column;
-            background: #111;
+            background: rgba(255,255,255,0.05);
             padding: 12px 20px;
             border-radius: 12px;
             margin-bottom: 30px;
-            border: 1px solid #222;
+            border: 1px solid rgba(255,255,255,0.1);
             gap: 4px;
         }
 
@@ -117,14 +117,14 @@
 
         .btn-download {
             background: var(--accent-color);
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            color: #000;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
         }
 
         .btn-download:hover {
             background: var(--hover-glow);
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(163, 93, 0, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 242, 254, 0.5);
         }
 
         .btn-github {
@@ -150,7 +150,7 @@
             box-shadow: 0 5px 15px rgba(255,255,255,0.2);
         }
 
-        /* --- CONTENT PADDING & LAYOUT --- */
+        /* --- LAYOUT & SPACING --- */
         .main-container {
             display: flex;
             flex-wrap: wrap;
@@ -167,13 +167,13 @@
             padding: 40px; 
             border-radius: var(--radius);
             margin-bottom: 25px;
-            border: 1px solid #1a1a1a;
+            border: 1px solid rgba(255,255,255,0.05);
             transition: var(--transition);
         }
 
         .card:hover { 
             border-color: var(--accent-color); 
-            background: #141414;
+            background: #1e293b;
         }
 
         h2 { 
@@ -202,7 +202,7 @@
 
         .skill-badge {
             display: inline-block;
-            background: #1a1000;
+            background: rgba(0, 242, 254, 0.1);
             color: #fff;
             padding: 6px 14px;
             border-radius: 6px;
@@ -212,7 +212,7 @@
             border: 1px solid var(--accent-color);
         }
 
-        /* --- DESIGN SECTION --- */
+        /* --- DESIGN SLIDER --- */
         #design-section {
             max-width: 1300px;
             margin: 60px auto;
@@ -223,7 +223,7 @@
             background: var(--card-bg);
             padding: 40px;
             border-radius: var(--radius);
-            border: 1px solid #1a1a1a;
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
         .slider-container {
@@ -237,8 +237,8 @@
         .slides img {
             width: 100%;
             max-height: 600px;
-            object-fit: contain; /* Full visibility, no cropping */
-            background: #000;
+            object-fit: contain;
+            background: #020617;
         }
 
         .slide-desc { padding: 25px 0; }
@@ -278,7 +278,7 @@
         </div>
         <br>
         <div class="btn-group">
-            <a href="#design-section" class="btn-general btn-nav">View Ad Designs</a>
+            <a href="#design-section" class="btn-general btn-nav">View Designs</a>
             <a href="Salem-Barhoum-CV.pdf" download class="btn-general btn-download">Download Full CV</a>
             <a href="https://github.com/salem-barhoum" target="_blank" class="btn-general btn-github">
                 <i class="fab fa-github"></i> GitHub Profile
@@ -315,11 +315,10 @@
             </div>
 
             <div class="card">
-                <h2>AI Design & Canva Skills</h2>
+                <h2>Design & AI Skills</h2>
                 <div class="skill-badge">Generative AI (Gemini/Midjourney)</div>
                 <div class="skill-badge">Canva Pro</div>
-                <div class="skill-badge">Prompt Engineering</div>
-                <div class="skill-badge">Creative Ad Design</div>
+                <div class="skill-badge">AI Prompt Engineering</div>
             </div>
 
             <div class="card">
@@ -363,6 +362,7 @@
                 <ul>
                     <li>Developed and implemented marketing campaigns to boost visibility.</li>
                     <li>Conducted market research and competitor analysis.</li>
+                    <li>Coordinated with sales teams to optimize promotional strategies.</li>
                     <li>Managed social media channels and promotional materials.</li>
                 </ul>
 
@@ -373,6 +373,17 @@
                     <li>Conducted testing and quality checks on manufactured units.</li>
                     <li>Troubleshot technical issues and performed necessary repairs.</li>
                 </ul>
+            </div>
+
+            <div class="card">
+                <h2>Projects & Volunteering</h2>
+                <h3>Volunteer Trainee (Software Dept)</h3>
+                <span class="meta-data">SSSD | 2024</span>
+                <p>Trained in ASP.NET, C#, Entity Framework, Bootstrap, SQL, and GitHub.</p>
+
+                <h3>Volunteer</h3>
+                <span class="meta-data">Jesus Light of the World Church | 2021-2022</span>
+                <p>Distributed food/supplies and organized community support activities.</p>
             </div>
 
             <div class="card">
@@ -392,34 +403,34 @@
 
     <section id="design-section">
         <div class="slider-wrapper">
-            <h2 style="border:none; text-align:center; padding:0; margin-bottom:30px;">Featured Ad Designs</h2>
+            <h2 style="border:none; text-align:center; padding:0; margin-bottom:30px;">Featured AI Designs</h2>
             <div class="slider-container">
                 <div class="slides">
                     <img src="Design1.png">
                     <div class="slide-desc">
                         <h3>Hearth & Harvest Sourdough</h3>
-                        <p>Action-oriented creative focused on sensory triggers for fresh bakery goods.</p>
+                        <p>High-impact sensory creative focusing on fresh bakery action.</p>
                     </div>
                 </div>
                 <div class="slides">
                     <img src="Design2.png">
                     <div class="slide-desc">
                         <h3>Wildflower Honey</h3>
-                        <p>Natural purity concept using rustic apiary aesthetics to establish trust.</p>
+                        <p>Establishing brand trust through rustic and organic visual aesthetics.</p>
                     </div>
                 </div>
                 <div class="slides">
                     <img src="Design3.png">
                     <div class="slide-desc">
                         <h3>Flour & Field Artisan Pasta</h3>
-                        <p>Macro-texture design highlighting handcrafted quality and premium ingredients.</p>
+                        <p>Macro-texture design highlighting premium ingredients and craftsmanship.</p>
                     </div>
                 </div>
                 <div class="slides">
                     <img src="Design4.png">
                     <div class="slide-desc">
                         <h3>Nectar Cola</h3>
-                        <p>Hyper-realistic sensory chill creative optimized for social media engagement.</p>
+                        <p>Social-optimized ad design utilizing hyper-realistic frost and carbonation effects.</p>
                     </div>
                 </div>
 
@@ -429,7 +440,7 @@
         </div>
     </section>
 
-    <footer style="padding: 40px; text-align: center; border-top: 1px solid #111;">
+    <footer style="padding: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
         <p style="color: var(--accent-color); font-weight: 900; letter-spacing: 2px; font-size: 0.8rem;">SALEM EID BARHOUM &copy; 2026</p>
     </footer>
 
