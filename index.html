@@ -61,7 +61,7 @@
             max-width: 1100px; width: 100%; background: linear-gradient(145deg, #050505, #0a0a0a);
             border: 1px solid var(--border); border-radius: 40px; padding: 50px;
             display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+            box-shadow: 0 40px 80px rgba(255,255,255,0.02);
         }
         .info-item { text-align: left; border-left: 2px solid var(--border); padding-left: 20px; transition: 0.3s; }
         .info-item:hover { border-left-color: var(--accent); }
@@ -103,7 +103,7 @@
         .entry .tag { color: var(--accent); font-weight: 800; font-size: 0.8rem; text-transform: uppercase; display: inline-block; margin-bottom: 15px; padding: 4px 12px; border: 1px solid var(--accent); border-radius: 5px; }
         .entry p, .entry li { color: var(--text-dim); font-size: 1rem; line-height: 1.8; margin-bottom: 10px; }
         .entry ul { list-style: none; padding-top: 10px; }
-        .entry ul li::before { content: "⚡"; margin-right: 12px; color: var(--accent); }
+        .entry ul li::before { content:  margin-right: 12px; color: var(--accent); }
 
         /* --- ENLARGED PORTFOLIO SLIDER --- */
         .portfolio-section { max-width: 1300px; margin: 120px auto; padding: 0 20px; }
@@ -274,7 +274,7 @@
     <section class="connect-box" id="connect">
         <h2>LET'S<br>BUILD</h2>
             <p>I’m currently available for freelance projects and full-time engineering roles.</p>
-        <span class="email-link">salmbarhoum1@gmail.com</span>
+        <br/>
         <form action="https://formspree.io/f/salmbarhoum1@gmail.com" method="POST">
             <input type="text" name="name" class="form-input" placeholder="Your Full Name" required>
             <input type="email" name="email" class="form-input" placeholder="Your Professional Email" required>
@@ -283,7 +283,7 @@
         </form>
     </section>
 
-    <footer>SALEM EID BARHOUM &bull; 2026 &bull; ENGINEERED WITH PRECISION</footer>
+    <footer>SALEM EID BARHOUM &bull; 2026 &bull;</footer>
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <script>
