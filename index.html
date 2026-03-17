@@ -3,189 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salem Eid Barhoum | Engineering Portfolio</title>
+    <title>Salem Eid Barhoum | Engineering & Design Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --accent: #00f2fe;
-            --accent-glow: rgba(0, 242, 254, 0.2);
+            --accent-rgb: 0, 242, 254;
             --bg-deep: #020617;
-            --glass-bg: rgba(15, 23, 42, 0.7);
-            --border: rgba(255, 255, 255, 0.08);
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
+            --card-bg: rgba(15, 23, 42, 0.7);
+            --border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
         
         body { 
             background-color: var(--bg-deep); 
-            color: var(--text-primary); 
+            color: var(--text-main); 
             line-height: 1.6;
-            background-image: 
-                radial-gradient(circle at 10% 10%, rgba(0, 242, 254, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 90% 90%, rgba(79, 172, 254, 0.05) 0%, transparent 40%);
+            background-image: radial-gradient(circle at 0% 0%, rgba(var(--accent-rgb), 0.05) 0%, transparent 40%);
             background-attachment: fixed;
         }
 
-        /* --- STICKY NAVBAR --- */
+        /* --- NAVIGATION --- */
         nav {
             position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 20px; left: 50%; transform: translateX(-50%);
             z-index: 1000;
             background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(15px);
             padding: 12px 30px;
             border-radius: 50px;
             border: 1px solid var(--border);
-            display: flex;
-            gap: 25px;
+            display: flex; gap: 25px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-
-        nav a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
+        nav a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
         nav a:hover { color: var(--accent); }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO --- */
         header {
-            padding: 140px 20px 60px;
+            padding: 160px 20px 80px;
             text-align: center;
         }
-
-        .hero-box { position: relative; display: inline-block; }
-        .profile-frame {
-            width: 180px;
-            height: 180px;
-            border-radius: 40px;
+        .profile-wrap {
+            width: 150px; height: 150px;
+            margin: 0 auto 30px;
+            border-radius: 30px;
             overflow: hidden;
             border: 2px solid var(--accent);
-            box-shadow: 0 0 30px var(--accent-glow);
-            margin-bottom: 25px;
+            box-shadow: 0 0 30px rgba(var(--accent-rgb), 0.3);
         }
-        .profile-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .profile-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        
+        h1 { font-size: 4rem; font-weight: 800; letter-spacing: -2px; margin-bottom: 10px; }
+        .hero-tag { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 5px; font-size: 0.9rem; margin-bottom: 30px; display: block; }
 
-        h1 { font-size: 3.8rem; font-weight: 800; letter-spacing: -2px; margin-bottom: 10px; background: linear-gradient(to right, #fff, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .role-tag { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 5px; font-size: 0.9rem; margin-bottom: 30px; display: block; }
+        /* --- BENTO SKILLS SECTION --- */
+        .section-header { text-align: center; margin-bottom: 50px; padding: 0 20px; }
+        .section-header span { color: var(--accent); font-weight: 700; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 800; margin-top: 10px; }
 
-        .btn-group { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
-        .btn { padding: 14px 32px; border-radius: 14px; font-weight: 700; text-decoration: none; transition: 0.4s; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; }
-        .btn-glow { background: var(--accent); color: #000; }
-        .btn-glow:hover { transform: scale(1.05); box-shadow: 0 0 25px var(--accent-glow); }
-        .btn-ghost { border: 1px solid var(--border); color: #fff; background: rgba(255,255,255,0.03); }
-        .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: var(--accent); }
+        .skills-grid {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+        }
+        .skill-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 40px;
+            text-align: center;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        .skill-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 20px 40px -15px rgba(var(--accent-rgb), 0.3); }
+        .skill-card i { font-size: 2.5rem; margin-bottom: 20px; color: var(--accent); }
+        .skill-card h3 { margin-bottom: 15px; font-weight: 800; }
+        .skill-card p { color: var(--text-dim); font-size: 0.85rem; }
 
-        /* --- MAIN LAYOUT --- */
-        .wrapper { max-width: 1200px; margin: 0 auto; padding: 40px 20px; display: grid; grid-template-columns: 350px 1fr; gap: 30px; }
+        /* --- CONTENT WRAPPER --- */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 0 20px;
+        }
 
         .glass-card {
-            background: var(--glass-bg);
+            background: var(--card-bg);
             backdrop-filter: blur(12px);
             border: 1px solid var(--border);
             border-radius: 28px;
-            padding: 35px;
+            padding: 40px;
             margin-bottom: 30px;
-            transition: 0.3s;
         }
-        .glass-card:hover { border-color: rgba(0, 242, 254, 0.4); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5); }
 
-        h2 { font-size: 1.1rem; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; display: flex; align-items: center; gap: 12px; }
-        h2 i { font-size: 1.2rem; }
+        h2.card-title { color: var(--accent); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; border-left: 4px solid var(--accent); padding-left: 15px; }
+        h3.entry-title { font-size: 1.2rem; color: #fff; margin-top: 25px; }
+        .date-meta { color: var(--accent); font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 15px; }
 
-        h3 { font-size: 1.15rem; color: #fff; margin-top: 25px; display: flex; align-items: center; gap: 10px; }
-        .meta-text { color: var(--accent); font-size: 0.8rem; font-weight: 700; display: block; margin: 5px 0 15px 30px; opacity: 0.8; }
+        ul { list-style: none; }
+        ul li { position: relative; padding-left: 25px; margin-bottom: 10px; color: var(--text-dim); font-size: 0.9rem; }
+        ul li::before { content: "■"; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; }
 
-        /* --- DATA STYLING --- */
-        .list-data { list-style: none; margin-left: 30px; }
-        .list-data li { position: relative; margin-bottom: 12px; color: var(--text-secondary); font-size: 0.9rem; }
-        .list-data li::before { content: "—"; position: absolute; left: -25px; color: var(--accent); font-weight: bold; }
-
-        .bento-skills { display: flex; flex-wrap: wrap; gap: 8px; }
-        .pill { background: rgba(0, 242, 254, 0.05); border: 1px solid var(--border); padding: 6px 14px; border-radius: 10px; font-size: 0.8rem; font-weight: 600; color: #fff; transition: 0.3s; }
-        .pill:hover { border-color: var(--accent); background: rgba(0, 242, 254, 0.1); }
+        .badge { display: inline-block; background: rgba(var(--accent-rgb), 0.1); border: 1px solid var(--accent); padding: 5px 12px; border-radius: 8px; font-size: 0.75rem; margin: 4px; font-weight: 600; }
 
         /* --- DESIGN SLIDER --- */
-        .slider-wrap { position: relative; overflow: hidden; border-radius: 24px; padding: 20px; text-align: center; }
-        .slide-img { width: 100%; border-radius: 18px; max-height: 500px; object-fit: contain; background: #000; }
-        .nav-btn { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); padding: 15px; border-radius: 50%; color: var(--accent); }
-        .next { right: 30px; } .prev { left: 30px; }
+        .slider-section { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+        .slider-box { position: relative; background: var(--card-bg); border-radius: 28px; padding: 40px; border: 1px solid var(--border); text-align: center; }
+        .slide-img { width: 100%; max-height: 500px; object-fit: contain; border-radius: 15px; background: #000; }
+        .prev, .next { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); padding: 20px; color: var(--accent); font-weight: bold; font-size: 24px; transition: 0.3s; }
+        .next { right: 20px; } .prev { left: 20px; }
+        .prev:hover, .next:hover { color: #fff; }
 
-        @media (max-width: 950px) {
-            .wrapper { grid-template-columns: 1fr; }
-            h1 { font-size: 2.5rem; }
-            nav { width: 90%; justify-content: space-around; }
+        /* --- CONTACT SECTION (FROM SCREENSHOT) --- */
+        .contact-container { max-width: 800px; margin: 100px auto; padding: 60px; background: #090e1a; border-radius: 40px; border: 1px solid var(--border); position: relative; overflow: hidden; }
+        .contact-container h2 { font-size: 3.5rem; font-weight: 800; line-height: 1; margin-bottom: 15px; }
+        .contact-container p { color: var(--text-dim); margin-bottom: 30px; }
+        .contact-email { color: #10b981; font-weight: 800; font-size: 0.9rem; margin-bottom: 40px; text-transform: uppercase; }
+        
+        .input-row { margin-bottom: 20px; }
+        .input-row input, .input-row textarea {
+            width: 100%; padding: 18px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 15px; color: white; outline: none; transition: 0.3s;
+        }
+        .input-row input:focus, .input-row textarea:focus { border-color: var(--accent); }
+        
+        .send-btn { width: 100%; padding: 20px; background: #10b981; color: #000; border: none; border-radius: 15px; font-weight: 800; font-size: 1rem; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
+        .send-btn:hover { background: #34d399; transform: scale(1.02); }
+
+        @media (max-width: 900px) {
+            .main-container { grid-template-columns: 1fr; }
+            h1 { font-size: 2.8rem; }
+            .contact-container { padding: 30px; margin: 40px 20px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#about"><i class="fas fa-user"></i> About</a>
-        <a href="#experience"><i class="fas fa-briefcase"></i> Experience</a>
-        <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
-        <a href="#designs"><i class="fas fa-palette"></i> Designs</a>
+        <a href="#home">Home</a>
+        <a href="#stack">Stack</a>
+        <a href="#experience">Experience</a>
+        <a href="#designs">Portfolio</a>
+        <a href="#connect">Connect</a>
     </nav>
 
-    <header>
-        <div class="hero-box">
-            <div class="profile-frame">
-                <img src="profile.jpeg" alt="Salem Eid Barhoum">
-            </div>
+    <header id="home">
+        <div class="profile-wrap">
+            <img src="profile.jpeg" alt="Salem Eid Barhoum">
         </div>
+        <span class="hero-tag">Informatics Engineer</span>
         <h1>Salem Eid Barhoum</h1>
-        <span class="role-tag">Informatics Engineer & Developer</span>
-        
-        <div class="btn-group">
-            <a href="Salem-Barhoum-CV.pdf" download class="btn btn-glow"><i class="fas fa-file-download"></i> Download CV</a>
-            <a href="https://github.com/salem-barhoum" target="_blank" class="btn btn-ghost"><i class="fab fa-github"></i> GitHub Profile</a>
+        <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px;">
+            <a href="Salem-Barhoum-CV.pdf" download class="badge" style="padding: 10px 20px; background: var(--accent); color: #000;">Download CV</a>
+            <a href="https://github.com/salem-barhoum" target="_blank" class="badge" style="padding: 10px 20px;">GitHub Profile</a>
         </div>
     </header>
 
-    <div class="wrapper">
-        <aside>
-            <div class="glass-card" id="about">
-                <h2><i class="fas fa-info-circle"></i> Objective</h2>
-                <p style="color: var(--text-secondary); font-size: 0.95rem;">To work in a professional and progressive organization offering challenging work that will enhance my knowledge, and to be able to work in a field which I can utilize my skills which I could go further to gain new experience also to the company's goal.</p>
+    <section id="stack">
+        <div class="section-header">
+            <span>Tech Stack & Expertise</span>
+            <h2>Developer & Designer</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-code"></i>
+                <h3>Frontend Development</h3>
+                <p>Angular, TypeScript, JavaScript, HTML5, CSS3, Bootstrap, Tailwind CSS.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-palette"></i>
+                <h3>Creative Design</h3>
+                <p>Canva Pro, AI Visual Design, Midjourney, UI/UX aesthetics & brand styling.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-brain"></i>
+                <h3>AI & Automation</h3>
+                <p>Prompt Engineering, Gemini, Workflow efficiency, Generative AI tools.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="main-container" id="experience">
+        <div class="col">
+            <div class="glass-card">
+                <h2 class="card-title">Objective</h2>
+                <p style="color: var(--text-dim);">To work in a professional and progressive organization offering challenging work that will enhance my knowledge, and to be able to work in a field which I can utilize my skills which I could go further to gain new experience also to the company's goal.</p>
             </div>
 
             <div class="glass-card">
-                <h2><i class="fas fa-id-card"></i> Personal</h2>
-                <div style="font-size: 0.9rem; color: var(--text-secondary); display: grid; gap: 10px;">
-                    <p><i class="fas fa-envelope" style="width:20px; color:var(--accent);"></i> salmbarhoum1@gmail.com</p>
-                    <p><i class="fas fa-phone" style="width:20px; color:var(--accent);"></i> +963 992374746</p>
-                    <p><i class="fas fa-map-marker-alt" style="width:20px; color:var(--accent);"></i> Jaramana, Damascus</p>
-                    <p><i class="fas fa-calendar" style="width:20px; color:var(--accent);"></i> July 4, 1998</p>
-                    <p><i class="fas fa-flag" style="width:20px; color:var(--accent);"></i> Syrian / Single</p>
-                </div>
-            </div>
-
-            <div class="glass-card" id="education">
-                <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-                <h3 style="margin-top:0"><i class="fas fa-university"></i> B.S. Informatics</h3>
-                <span class="meta-text">Syrian Virtual University | 2025-2026</span>
-                <p style="margin-left:30px; font-size: 0.85rem; color: var(--text-secondary);">Specialization: Software Development</p>
-
-                <h3><i class="fas fa-certificate"></i> High School</h3>
-                <span class="meta-text">Scientific Department | 2016</span>
+                <h2 class="card-title">Personal Information</h2>
+                <ul style="display: grid; grid-template-columns: 1fr 1fr;">
+                    <li><strong>Gender:</strong> Male</li>
+                    <li><strong>Born:</strong> July 4, 1998</li>
+                    <li><strong>Nationality:</strong> Syrian</li>
+                    <li><strong>Status:</strong> Single</li>
+                </ul>
+                <p style="margin-top: 15px; font-size: 0.9rem; color: var(--text-dim);"><strong>Address:</strong> Damascus/Jaramana, Syria</p>
+                <p style="font-size: 0.9rem; color: var(--text-dim);"><strong>Phone:</strong> +963 992374746</p>
             </div>
 
             <div class="glass-card">
-                <h2><i class="fas fa-language"></i> Languages</h2>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;"><strong>Arabic:</strong> Mother tongue</p>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;"><strong>English:</strong> Good Proficiency</p>
-            </div>
-        </aside>
-
-        <main>
-            <div class="glass-card" id="experience">
-                <h2><i class="fas fa-briefcase"></i> Job Experience</h2>
+                <h2 class="card-title">Education</h2>
+                <h3 class="entry-title">Bachelor’s in Informatics Engineering</h3>
+                <span class="date-meta">Syrian Virtual University | 2025-2026</span>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Specialization in Software Development.</p>
                 
-                <h3><i class="fas fa-network-wired"></i> IT Support / System Admin / MEAL Officer</h3>
-                <span class="meta-text">Charitable Action Committee | 2020 – 2026</span>
-                <ul class="list-data">
+                <h3 class="entry-title">High School Certification</h3>
+                <span class="date-meta">Scientific Department | 2016</span>
+            </div>
+
+            <div class="glass-card">
+                <h2 class="card-title">Computer Skills</h2>
+                <ul>
+                    <li>Experience in computer operation, MS Office programs (Windows - World - Excel - PowerPoint - Access).</li>
+                    <li>Computer equipment use, printing, photo copying, faxing and etc.</li>
+                    <li>Internet research and use.</li>
+                    <li>Experience in applying AI tools to enhance efficiency and streamline workflows.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="glass-card">
+                <h2 class="card-title">Job Experience</h2>
+                
+                <h3 class="entry-title">IT Support / System Admin / MEAL Officer</h3>
+                <span class="date-meta">Charitable Action Committee | 2020 – 2026</span>
+                <ul>
                     <li>Provided IT support for staff, troubleshooting hardware and software issues.</li>
                     <li>Managed system administration tasks including user accounts, network configuration, and backups.</li>
                     <li>Monitored project performance, collected data, and prepared evaluation reports.</li>
@@ -195,27 +250,27 @@
                     <li>Assisted in training staff on software tools, MEAL, and IT best practices.</li>
                 </ul>
 
-                <h3><i class="fas fa-code"></i> Frontend Developer (Online)</h3>
-                <span class="meta-text">SKYFY Company | 2023 (6 months)</span>
-                <ul class="list-data">
+                <h3 class="entry-title">Frontend Developer (Online)</h3>
+                <span class="date-meta">SKYFY Company | 2023 (6 months)</span>
+                <ul>
                     <li>Developed responsive web applications using Angular framework (Typescript, JavaScript, HTML, CSS).</li>
                     <li>Collaborated with UI/UX designers for visually appealing interfaces.</li>
                     <li>Optimized applications for performance and cross-browser compatibility.</li>
                     <li>Conducted code reviews and maintained documentation.</li>
                 </ul>
 
-                <h3><i class="fas fa-chart-line"></i> Marketing Officer</h3>
-                <span class="meta-text">Henkel Persil Company | 2018 – 2020</span>
-                <ul class="list-data">
+                <h3 class="entry-title">Marketing Officer</h3>
+                <span class="date-meta">Henkel Persil Company | 2018 – 2020</span>
+                <ul>
                     <li>Developed and implemented marketing campaigns to boost visibility.</li>
                     <li>Conducted market research and competitor analysis.</li>
                     <li>Coordinated with sales teams to optimize promotional strategies.</li>
                     <li>Managed social media channels and promotional materials.</li>
                 </ul>
 
-                <h3><i class="fas fa-bolt"></i> Electricity Regulator Technician</h3>
-                <span class="meta-text">Mora Company | 2016 – 2018</span>
-                <ul class="list-data">
+                <h3 class="entry-title">Electricity Regulator Technician</h3>
+                <span class="date-meta">Mora Company | 2016 – 2018</span>
+                <ul>
                     <li>Installed, assembled, and maintained electrical regulators.</li>
                     <li>Conducted testing and quality checks on manufactured units.</li>
                     <li>Troubleshot technical issues and performed necessary repairs.</li>
@@ -223,69 +278,70 @@
             </div>
 
             <div class="glass-card">
-                <h2><i class="fas fa-laptop-code"></i> Technical Stack</h2>
-                <h3 style="margin-top:0">AI & Engineering</h3>
-                <div class="bento-skills">
-                    <span class="pill">Generative AI (Gemini/Midjourney)</span>
-                    <span class="pill">AI Prompt Engineering</span>
-                    <span class="pill">Angular</span>
-                    <span class="pill">TypeScript</span>
-                    <span class="pill">JavaScript</span>
-                    <span class="pill">HTML5/CSS3</span>
-                </div>
+                <h2 class="card-title">Projects & Volunteering</h2>
+                <h3 class="entry-title" style="margin-top:0">Volunteer Trainee (Software Dept)</h3>
+                <span class="date-meta">SSSD | 2024</span>
+                <p style="color: var(--text-dim);">Trained in ASP.NET, C#, Entity Framework, Bootstrap, SQL, and GitHub.</p>
 
-                <h3>Computing & Productivity</h3>
-                <ul class="list-data">
-                    <li>MS Office (Windows, Word, Excel, PowerPoint, Access)</li>
-                    <li>Hardware maintenance, printing, and office equipment</li>
-                    <li>Internet research & advanced AI workflow automation</li>
-                </ul>
+                <h3 class="entry-title">Volunteer</h3>
+                <span class="date-meta">Jesus Light of the World Church | 2021-2022</span>
+                <p style="color: var(--text-dim);">Distributed food/supplies and organized community support activities.</p>
             </div>
-
-            <div class="glass-card">
-                <h2><i class="fas fa-hands-helping"></i> Projects & Volunteering</h2>
-                <h3><i class="fas fa-terminal"></i> Volunteer Trainee (Software Dept)</h3>
-                <span class="meta-text">SSSD | 2024</span>
-                <p style="margin-left:30px; font-size: 0.9rem; color: var(--text-secondary);">Trained in ASP.NET, C#, Entity Framework, Bootstrap, SQL, and GitHub.</p>
-
-                <h3><i class="fas fa-church"></i> Community Volunteer</h3>
-                <span class="meta-text">Jesus Light of the World Church | 2021-2022</span>
-                <p style="margin-left:30px; font-size: 0.9rem; color: var(--text-secondary);">Distributed food/supplies and organized community support activities.</p>
-            </div>
-
-            <div class="glass-card" id="designs">
-                <h2><i class="fas fa-palette"></i> Featured AI Designs</h2>
-                <div class="slider-wrap">
-                    <div class="slides">
-                        <img src="Design1.png" class="slide-img">
-                        <h3>Hearth & Harvest Sourdough</h3>
-                        <p style="color:var(--text-secondary)">High-impact sensory creative focusing on fresh bakery action.</p>
-                    </div>
-                    <div class="slides">
-                        <img src="Design2.png" class="slide-img">
-                        <h3>Wildflower Honey</h3>
-                        <p style="color:var(--text-secondary)">Establishing brand trust through rustic and organic visual aesthetics.</p>
-                    </div>
-                    <div class="slides">
-                        <img src="Design3.png" class="slide-img">
-                        <h3>Flour & Field Artisan Pasta</h3>
-                        <p style="color:var(--text-secondary)">Macro-texture design highlighting premium ingredients and craftsmanship.</p>
-                    </div>
-                    <div class="slides">
-                        <img src="Design4.png" class="slide-img">
-                        <h3>Nectar Cola</h3>
-                        <p style="color:var(--text-secondary)">Social-optimized ad design utilizing hyper-realistic frost and carbonation effects.</p>
-                    </div>
-                    <a class="nav-btn prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="nav-btn next" onclick="plusSlides(1)">&#10095;</a>
-                </div>
-            </div>
-        </main>
+        </div>
     </div>
 
-    <footer style="padding: 80px; text-align: center; border-top: 1px solid var(--border); margin-top: 60px;">
-        <p style="color: var(--accent); font-weight: 800; letter-spacing: 3px; font-size: 0.8rem;">SALEM EID BARHOUM &copy; 2026</p>
-        <p style="color: var(--text-secondary); font-size: 0.7rem; margin-top: 10px;">INFORMATICS ENGINEER | SOFTWARE DEVELOPER | DESIGNER</p>
+    <section class="slider-section" id="designs">
+        <div class="slider-box">
+            <h2 class="card-title" style="border:none; text-align:center;">Featured AI Designs</h2>
+            <div class="slides">
+                <img src="Design1.png" class="slide-img">
+                <h3 class="entry-title">Hearth & Harvest Sourdough</h3>
+                <p style="color:var(--text-dim)">High-impact sensory creative focusing on fresh bakery action.</p>
+            </div>
+            <div class="slides">
+                <img src="Design2.png" class="slide-img">
+                <h3 class="entry-title">Wildflower Honey</h3>
+                <p style="color:var(--text-dim)">Establishing brand trust through rustic and organic visual aesthetics.</p>
+            </div>
+            <div class="slides">
+                <img src="Design3.png" class="slide-img">
+                <h3 class="entry-title">Flour & Field Artisan Pasta</h3>
+                <p style="color:var(--text-dim)">Macro-texture design highlighting premium ingredients and craftsmanship.</p>
+            </div>
+            <div class="slides">
+                <img src="Design4.png" class="slide-img">
+                <h3 class="entry-title">Nectar Cola</h3>
+                <p style="color:var(--text-dim)">Social-optimized ad design utilizing hyper-realistic frost and carbonation effects.</p>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </section>
+
+    <section class="contact-container" id="connect">
+        <h2>LET'S<br>CONNECT</h2>
+        <p>Have a project in mind? Let's build something that pushes the boundaries of the modern web.</p>
+        <div class="contact-email">
+            SALMBARHOUM1@GMAIL.COM<br>
+            BASED IN SYRIA, WORKING WORLDWIDE
+        </div>
+        
+        <form>
+            <div class="input-row">
+                <input type="text" placeholder="Your Name">
+            </div>
+            <div class="input-row">
+                <input type="email" placeholder="Email Address">
+            </div>
+            <div class="input-row">
+                <textarea rows="5" placeholder="Tell me about your project..."></textarea>
+            </div>
+            <button type="button" class="send-btn">Send Message</button>
+        </form>
+    </section>
+
+    <footer style="padding: 60px; text-align: center; color: var(--text-dim); font-size: 0.8rem; border-top: 1px solid var(--border);">
+        <p style="color: var(--accent); font-weight: 800; letter-spacing: 2px;">SALEM EID BARHOUM &copy; 2026</p>
     </footer>
 
     <script>
