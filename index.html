@@ -4,324 +4,165 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salem Eid Barhoum | Engineering Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            --accent-color: #00f2fe; /* Electric Blue */
-            --hover-glow: #4facfe;   /* Midnight Blue */
-            --bg-black: #020617;     /* Deep Midnight Black */
-            --card-bg: #0f172a;      /* Navy Card Background */
-            --text-white: #ffffff;
-            --text-gray: #94a3b8;
-            --radius: 16px;
-            --transition: all 0.3s ease;
+            --accent: #00f2fe;
+            --accent-glow: rgba(0, 242, 254, 0.3);
+            --bg: #020617;
+            --card-bg: rgba(15, 23, 42, 0.7);
+            --border: rgba(255, 255, 255, 0.08);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
         
         body { 
-            background-color: var(--bg-black); 
-            color: var(--text-white); 
-            line-height: 1.6; 
-            overflow-x: hidden; 
+            background-color: var(--bg); 
+            color: var(--text-main); 
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(0, 242, 254, 0.07) 0%, transparent 30%),
+                radial-gradient(circle at 100% 100%, rgba(79, 172, 254, 0.07) 0%, transparent 30%);
+            background-attachment: fixed;
         }
 
-        /* --- HEADER --- */
         header {
-            padding: 60px 20px 40px 20px;
+            padding: 80px 20px;
             text-align: center;
-            background: radial-gradient(circle at center, #1e293b 0%, #020617 100%);
+            background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
         }
 
-        .profile-wrapper {
+        .profile-container {
             position: relative;
-            display: inline-block;
-            margin-bottom: 20px;
-            overflow: hidden;
-            border-radius: var(--radius);
-            width: 150px;
-            height: 150px;
-            border: 2px solid var(--accent-color);
-            transition: var(--transition);
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 30px;
         }
 
         .profile-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            border-radius: 24px;
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
         }
 
-        .profile-wrapper:hover {
-            border-color: var(--hover-glow);
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.4);
-        }
+        h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -2px; margin-bottom: 10px; }
+        .role-title { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 4px; font-size: 0.9rem; margin-bottom: 25px; }
 
-        .profile-wrapper:hover .profile-img {
-            transform: scale(1.1);
-        }
-
-        h1 { 
-            font-size: 2.5rem;
-            font-weight: 900; 
-            letter-spacing: -1px; 
-            line-height: 1.2; 
-            margin-bottom: 8px; 
-        }
-
-        .role-title { 
-            color: var(--accent-color); 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            letter-spacing: 4px; 
-            font-size: 0.9rem;
-            margin-bottom: 25px; 
-        }
-
-        .contact-pill {
-            display: inline-flex;
-            flex-direction: column;
-            background: rgba(255,255,255,0.05);
-            padding: 12px 20px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255,255,255,0.1);
-            gap: 4px;
-        }
-
-        .email-text { text-transform: lowercase; color: var(--text-gray); font-weight: 600; font-size: 0.85rem; }
-
-        /* --- BUTTONS --- */
-        .btn-group {
-            display: flex;
-            justify-content: center;
+        .contact-grid {
+            display: inline-grid;
+            grid-template-columns: auto auto;
             gap: 15px;
-            flex-wrap: wrap;
+            background: rgba(255,255,255,0.03);
+            padding: 15px 25px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            margin-bottom: 30px;
         }
 
-        .btn-general {
-            padding: 14px 25px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 800;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            display: inline-block;
-            cursor: pointer;
-            border: none;
-        }
+        .contact-item { font-size: 0.85rem; color: var(--text-dim); text-decoration: none; display: flex; align-items: center; gap: 8px; }
 
-        .btn-download {
-            background: var(--accent-color);
-            color: #000;
-            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
-        }
+        .btn-group { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .btn { padding: 12px 28px; border-radius: 12px; font-weight: 700; text-decoration: none; transition: 0.3s; font-size: 0.9rem; }
+        .btn-main { background: var(--accent); color: #000; }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 20px var(--accent-glow); }
+        .btn-sub { border: 1px solid var(--border); color: #fff; background: rgba(255,255,255,0.05); }
 
-        .btn-download:hover {
-            background: var(--hover-glow);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 242, 254, 0.5);
-        }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 30px; }
 
-        .btn-github {
-            background: #24292e;
-            color: #fff;
-            border: 1px solid #444;
-        }
-
-        .btn-github:hover {
-            background: #444;
-            transform: translateY(-3px);
-            border-color: var(--accent-color);
-        }
-
-        .btn-nav {
-            background: #fff;
-            color: #000;
-        }
-
-        .btn-nav:hover {
-            transform: translateY(-3px);
-            background: #f0f0f0;
-            box-shadow: 0 5px 15px rgba(255,255,255,0.2);
-        }
-
-        /* --- LAYOUT & SPACING --- */
-        .main-container {
-            display: flex;
-            flex-wrap: wrap;
-            max-width: 1300px;
-            margin: 40px auto;
-            gap: 25px;
-            padding: 0 20px;
-        }
-
-        .col { flex: 1; min-width: 450px; }
-
-        .card {
+        .glass-card {
             background: var(--card-bg);
-            padding: 40px; 
-            border-radius: var(--radius);
-            margin-bottom: 25px;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 35px;
+            margin-bottom: 30px;
         }
 
-        .card:hover { 
-            border-color: var(--accent-color); 
-            background: #1e293b;
-        }
+        h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 20px; text-transform: uppercase; border-left: 4px solid var(--accent); padding-left: 15px; }
+        h3 { font-size: 1.1rem; color: #fff; margin-top: 20px; margin-bottom: 5px; }
+        .meta { color: var(--accent); font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 12px; }
 
-        h2 { 
-            color: var(--accent-color); 
-            font-size: 1.3rem; 
-            font-weight: 900; 
-            margin-bottom: 20px; 
-            text-transform: uppercase; 
-            border-left: 5px solid var(--accent-color);
-            padding-left: 15px;
-        }
+        ul { list-style: none; }
+        ul li { position: relative; padding-left: 20px; margin-bottom: 10px; color: var(--text-dim); font-size: 0.9rem; }
+        ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
 
-        h3 { font-size: 1.15rem; font-weight: 700; color: #fff; margin-top: 20px; }
-        .meta-data { color: var(--accent-color); font-weight: 800; font-size: 0.85rem; display: block; margin-bottom: 10px; }
+        .badge { display: inline-block; background: rgba(0, 242, 254, 0.1); border: 1px solid var(--accent); padding: 5px 12px; border-radius: 8px; font-size: 0.75rem; margin: 4px; }
 
-        p, li { color: var(--text-gray); font-size: 0.95rem; margin-bottom: 8px; }
-        ul { list-style: none; margin-top: 12px; }
-        ul li { margin-bottom: 10px; padding-left: 25px; position: relative; }
-        ul li::before { 
-            content: "■"; 
-            position: absolute; 
-            left: 0; 
-            color: var(--accent-color); 
-            font-size: 0.8rem; 
-        }
-
-        .skill-badge {
-            display: inline-block;
-            background: rgba(0, 242, 254, 0.1);
-            color: #fff;
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin: 4px;
-            border: 1px solid var(--accent-color);
-        }
-
-        /* --- DESIGN SLIDER --- */
-        #design-section {
-            max-width: 1300px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-
-        .slider-wrapper {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: var(--radius);
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .slider-container {
-            position: relative;
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
+        /* --- SLIDER --- */
+        #design-section { max-width: 1200px; margin: 40px auto; padding: 20px; }
+        .slider-container { position: relative; overflow: hidden; border-radius: 24px; background: var(--card-bg); border: 1px solid var(--border); padding: 40px; }
         .slides { display: none; text-align: center; }
-        .slides img {
-            width: 100%;
-            max-height: 600px;
-            object-fit: contain;
-            background: #020617;
-        }
+        .slides img { max-width: 100%; border-radius: 12px; max-height: 500px; }
+        .prev, .next { cursor: pointer; position: absolute; top: 50%; padding: 15px; color: var(--accent); font-weight: bold; font-size: 20px; }
+        .next { right: 20px; } .prev { left: 20px; }
 
-        .slide-desc { padding: 25px 0; }
-        .slide-desc h3 { color: var(--accent-color); margin-top: 0; }
-
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 40%;
-            padding: 16px;
-            color: white;
-            background: rgba(0,0,0,0.8);
-            border-radius: 50%;
-            transition: 0.3s;
-        }
-        .next { right: 20px; }
-        .prev { left: 20px; }
-
-        @media (max-width: 768px) {
-            .col { min-width: 100%; }
-            h1 { font-size: 2rem; }
-        }
+        @media (max-width: 900px) { .container { grid-template-columns: 1fr; } h1 { font-size: 2.5rem; } }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="profile-wrapper">
+        <div class="profile-container">
             <img src="profile.jpeg" alt="Salem Eid Barhoum" class="profile-img">
         </div>
         <h1>Salem Eid Barhoum</h1>
         <p class="role-title">Informatics Engineer</p>
         
-        <div class="contact-pill">
-            <span class="email-text"><i class="fas fa-envelope"></i> salmbarhoum1@gmail.com</span>
-            <span class="email-text"><i class="fas fa-phone"></i> +963 992374746</span>
+        <div class="contact-grid">
+            <div class="contact-item"><i class="fas fa-envelope"></i> salmbarhoum1@gmail.com</div>
+            <div class="contact-item"><i class="fas fa-phone"></i> +963 992374746</div>
         </div>
-        <br>
+
         <div class="btn-group">
-            <a href="#design-section" class="btn-general btn-nav">View Designs</a>
-            <a href="Salem-Barhoum-CV.pdf" download class="btn-general btn-download">Download Full CV</a>
-            <a href="https://github.com/salem-barhoum" target="_blank" class="btn-general btn-github">
-                <i class="fab fa-github"></i> GitHub Profile
-            </a>
+            <a href="#design-section" class="btn btn-sub">View Designs</a>
+            <a href="Salem-Barhoum-CV.pdf" download class="btn btn-main">Download CV</a>
+            <a href="https://github.com/salem-barhoum" target="_blank" class="btn btn-sub"><i class="fab fa-github"></i> GitHub</a>
         </div>
     </header>
 
-    <div class="main-container">
-        <div class="col">
-            <div class="card">
+    <div class="container">
+        <div class="left-col">
+            <div class="glass-card">
                 <h2>Objective</h2>
-                <p>To work in a professional and progressive organization offering challenging work that will enhance my knowledge, and to be able to work in a field which I can utilize my skills which I could go further to gain new experience also to the company's goal.</p>
+                <p style="color: var(--text-dim); font-size: 0.95rem;">To work in a professional and progressive organization offering challenging work that will enhance my knowledge, and to be able to work in a field which I can utilize my skills which I could go further to gain new experience also to the company's goal.</p>
             </div>
 
-            <div class="card">
-                <h2>Personal Information</h2>
-                <ul style="display: grid; grid-template-columns: 1fr 1fr;">
+            <div class="glass-card">
+                <h2>Personal Details</h2>
+                <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                     <li><strong>Gender:</strong> Male</li>
                     <li><strong>Born:</strong> July 4, 1998</li>
                     <li><strong>Nationality:</strong> Syrian</li>
                     <li><strong>Status:</strong> Single</li>
                 </ul>
-                <p style="padding-left: 25px; margin-top: 10px;"><strong>Address:</strong> Damascus/Jaramana, Syria</p>
+                <p style="margin-top: 15px; font-size: 0.9rem; color: var(--text-dim);"><strong>Address:</strong> Damascus/Jaramana, Syria</p>
             </div>
 
-            <div class="card">
+            <div class="glass-card">
                 <h2>Education</h2>
                 <h3>Bachelor’s in Informatics Engineering</h3>
-                <span class="meta-data">Syrian Virtual University | 2025-2026</span>
-                <p>Specialization in Software Development.</p>
+                <span class="meta">Syrian Virtual University | 2025-2026</span>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Specialization in Software Development.</p>
                 
                 <h3>High School Certification</h3>
-                <span class="meta-data">Scientific Department | 2016</span>
+                <span class="meta">Scientific Department | 2016</span>
             </div>
 
-            <div class="card">
+            <div class="glass-card">
                 <h2>Design & AI Skills</h2>
-                <div class="skill-badge">Generative AI (Gemini/Midjourney)</div>
-                <div class="skill-badge">Canva Pro</div>
-                <div class="skill-badge">AI Prompt Engineering</div>
+                <div class="badge">Generative AI (Gemini/Midjourney)</div>
+                <div class="badge">Canva Pro</div>
+                <div class="badge">AI Prompt Engineering</div>
             </div>
 
-            <div class="card">
+            <div class="glass-card">
                 <h2>Computer Skills</h2>
                 <ul>
                     <li>Experience in computer operation, MS Office programs (Windows - World - Excel - PowerPoint - Access).</li>
@@ -332,12 +173,12 @@
             </div>
         </div>
 
-        <div class="col">
-            <div class="card">
+        <div class="right-col">
+            <div class="glass-card">
                 <h2>Job Experience</h2>
                 
                 <h3>IT Support / System Admin / MEAL Officer</h3>
-                <span class="meta-data">Charitable Action Committee | 2020 – 2026</span>
+                <span class="meta">Charitable Action Committee | 2020 – 2026</span>
                 <ul>
                     <li>Provided IT support for staff, troubleshooting hardware and software issues.</li>
                     <li>Managed system administration tasks including user accounts, network configuration, and backups.</li>
@@ -349,7 +190,7 @@
                 </ul>
 
                 <h3>Frontend Developer (Online)</h3>
-                <span class="meta-data">SKYFY Company | 2023 (6 months)</span>
+                <span class="meta">SKYFY Company | 2023 (6 months)</span>
                 <ul>
                     <li>Developed responsive web applications using Angular framework (Typescript, JavaScript, HTML, CSS).</li>
                     <li>Collaborated with UI/UX designers for visually appealing interfaces.</li>
@@ -358,7 +199,7 @@
                 </ul>
 
                 <h3>Marketing Officer</h3>
-                <span class="meta-data">Henkel Persil Company | 2018 – 2020</span>
+                <span class="meta">Henkel Persil Company | 2018 – 2020</span>
                 <ul>
                     <li>Developed and implemented marketing campaigns to boost visibility.</li>
                     <li>Conducted market research and competitor analysis.</li>
@@ -367,7 +208,7 @@
                 </ul>
 
                 <h3>Electricity Regulator Technician</h3>
-                <span class="meta-data">Mora Company | 2016 – 2018</span>
+                <span class="meta">Mora Company | 2016 – 2018</span>
                 <ul>
                     <li>Installed, assembled, and maintained electrical regulators.</li>
                     <li>Conducted testing and quality checks on manufactured units.</li>
@@ -375,25 +216,25 @@
                 </ul>
             </div>
 
-            <div class="card">
+            <div class="glass-card">
                 <h2>Projects & Volunteering</h2>
                 <h3>Volunteer Trainee (Software Dept)</h3>
-                <span class="meta-data">SSSD | 2024</span>
-                <p>Trained in ASP.NET, C#, Entity Framework, Bootstrap, SQL, and GitHub.</p>
+                <span class="meta">SSSD | 2024</span>
+                <p style="color: var(--text-dim);">Trained in ASP.NET, C#, Entity Framework, Bootstrap, SQL, and GitHub.</p>
 
-                <h3>Volunteer</h3>
-                <span class="meta-data">Jesus Light of the World Church | 2021-2022</span>
-                <p>Distributed food/supplies and organized community support activities.</p>
+                <h3 style="margin-top:20px;">Volunteer</h3>
+                <span class="meta">Jesus Light of the World Church | 2021-2022</span>
+                <p style="color: var(--text-dim);">Distributed food/supplies and organized community support activities.</p>
             </div>
 
-            <div class="card">
+            <div class="glass-card">
                 <h2>Highlights & Languages</h2>
                 <div style="margin-bottom: 20px;">
-                    <div class="skill-badge">Revenue generation</div>
-                    <div class="skill-badge">Business development</div>
-                    <div class="skill-badge">Staff Motivation</div>
-                    <div class="skill-badge">Stress Resistance</div>
-                    <div class="skill-badge">Good Manners</div>
+                    <div class="badge">Revenue generation</div>
+                    <div class="badge">Business development</div>
+                    <div class="badge">Staff Motivation</div>
+                    <div class="badge">Stress Resistance</div>
+                    <div class="badge">Good Manners</div>
                 </div>
                 <p><strong>Arabic:</strong> Mother tongue.</p>
                 <p><strong>English:</strong> Good in speaking, listening, writing and reading.</p>
@@ -402,46 +243,35 @@
     </div>
 
     <section id="design-section">
-        <div class="slider-wrapper">
-            <h2 style="border:none; text-align:center; padding:0; margin-bottom:30px;">Featured AI Designs</h2>
-            <div class="slider-container">
-                <div class="slides">
-                    <img src="Design1.png">
-                    <div class="slide-desc">
-                        <h3>Hearth & Harvest Sourdough</h3>
-                        <p>High-impact sensory creative focusing on fresh bakery action.</p>
-                    </div>
-                </div>
-                <div class="slides">
-                    <img src="Design2.png">
-                    <div class="slide-desc">
-                        <h3>Wildflower Honey</h3>
-                        <p>Establishing brand trust through rustic and organic visual aesthetics.</p>
-                    </div>
-                </div>
-                <div class="slides">
-                    <img src="Design3.png">
-                    <div class="slide-desc">
-                        <h3>Flour & Field Artisan Pasta</h3>
-                        <p>Macro-texture design highlighting premium ingredients and craftsmanship.</p>
-                    </div>
-                </div>
-                <div class="slides">
-                    <img src="Design4.png">
-                    <div class="slide-desc">
-                        <h3>Nectar Cola</h3>
-                        <p>Social-optimized ad design utilizing hyper-realistic frost and carbonation effects.</p>
-                    </div>
-                </div>
-
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="slider-container">
+            <h2 style="border:none; text-align:center;">Featured AI Designs</h2>
+            <div class="slides">
+                <img src="Design1.png">
+                <h3>Hearth & Harvest Sourdough</h3>
+                <p>High-impact sensory creative focusing on fresh bakery action.</p>
             </div>
+            <div class="slides">
+                <img src="Design2.png">
+                <h3>Wildflower Honey</h3>
+                <p>Establishing brand trust through rustic and organic visual aesthetics.</p>
+            </div>
+            <div class="slides">
+                <img src="Design3.png">
+                <h3>Flour & Field Artisan Pasta</h3>
+                <p>Macro-texture design highlighting premium ingredients and craftsmanship.</p>
+            </div>
+            <div class="slides">
+                <img src="Design4.png">
+                <h3>Nectar Cola</h3>
+                <p>Social-optimized ad design utilizing hyper-realistic frost and carbonation effects.</p>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
     </section>
 
-    <footer style="padding: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
-        <p style="color: var(--accent-color); font-weight: 900; letter-spacing: 2px; font-size: 0.8rem;">SALEM EID BARHOUM &copy; 2026</p>
+    <footer style="padding: 60px; text-align: center; color: var(--accent); font-weight: 800; font-size: 0.8rem; letter-spacing: 2px;">
+        SALEM EID BARHOUM &copy; 2026
     </footer>
 
     <script>
