@@ -3,164 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salem Eid Barhoum | Software Developer & Designer</title>
+    <title>Salem Eid Barhoum | Software Engineer & Designer</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --accent: #00f2fe; /* Unified Electric Blue */
+            --accent: #00f2fe;
             --bg: #000000;
             --card-bg: #0a0a0a;
             --border: #1a1a1a;
             --text-main: #ffffff;
             --text-dim: #a1a1aa;
+            
+            /* Icon Colors from your Photo */
+            --html: #e34f26;
+            --css: #1572b6;
+            --js: #f7df1e;
+            --angular: #dd0031;
+            --python: #3776ab;
+            --react: #61dafb;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
         
-        body { 
-            background-color: var(--bg); 
-            color: var(--text-main); 
-            overflow-x: hidden;
-        }
+        body { background-color: var(--bg); color: var(--text-main); overflow-x: hidden; }
 
-        /* --- MODERN NAVBAR --- */
+        /* --- NAVBAR --- */
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: rgba(0,0,0,0.9);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 25px 5%; position: fixed; width: 100%; top: 0; z-index: 1000;
+            background: rgba(0,0,0,0.9); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border);
         }
-        .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; }
+        .logo { font-weight: 800; font-size: 1.5rem; }
         .logo span { color: var(--accent); }
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
         .nav-links a:hover { color: var(--accent); }
 
         /* --- HERO --- */
         .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            background: radial-gradient(circle at 50% 50%, #082f49 0%, #000 70%);
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 0 20px; background: radial-gradient(circle at 50% 50%, #082f49 0%, #000 80%);
         }
-        .hero h1 { font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; line-height: 0.9; margin-bottom: 20px; letter-spacing: -3px; }
-        .hero p { color: var(--text-dim); max-width: 650px; font-size: 1.1rem; margin-bottom: 40px; line-height: 1.8; }
-        .btn-action { 
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            padding: 18px 45px; 
-            border-radius: 100px; 
-            text-decoration: none; 
-            font-weight: 800; 
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: 0.4s;
+        .profile-img {
+            width: 140px; height: 140px; border-radius: 40px; border: 2px solid var(--accent);
+            margin-bottom: 30px; object-fit: cover; box-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
         }
-        .btn-action:hover { background: var(--accent); color: #000; box-shadow: 0 0 30px rgba(0, 242, 254, 0.4); }
+        .hero h1 { font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 800; line-height: 0.9; letter-spacing: -3px; margin-bottom: 20px; }
+        .hero p { color: var(--text-dim); max-width: 600px; margin-bottom: 40px; font-size: 1.1rem; }
+        
+        .hero-btns { display: flex; gap: 15px; }
+        .btn { 
+            padding: 15px 35px; border-radius: 12px; font-weight: 800; text-decoration: none; 
+            text-transform: uppercase; font-size: 0.8rem; transition: 0.4s; display: flex; align-items: center; gap: 10px;
+        }
+        .btn-cv { background: var(--accent); color: #000; }
+        .btn-git { border: 1px solid var(--border); color: #fff; background: rgba(255,255,255,0.05); }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); filter: brightness(1.2); }
 
-        /* --- SKILLS BENTO (UNIFIED DESIGN) --- */
-        .section-label { color: var(--accent); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 4px; text-align: center; display: block; margin-top: 120px; }
-        .section-title { font-size: 3.5rem; font-weight: 800; text-align: center; margin-bottom: 80px; letter-spacing: -2px; }
-
+        /* --- BENTO SKILLS (COLORFUL) --- */
+        .section-title { text-align: center; margin: 100px 0 60px; font-size: 3rem; font-weight: 800; letter-spacing: -2px; }
         .skills-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-            padding: 0 20px;
+            max-width: 1200px; margin: 0 auto; display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 0 20px;
         }
-
         .skill-card {
-            background: #050505;
-            border: 1px solid var(--border);
-            border-radius: 35px;
-            padding: 60px 40px;
-            text-align: center;
-            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #050505; border: 1px solid var(--border); border-radius: 30px;
+            padding: 40px 20px; text-align: center; transition: 0.4s;
         }
-        .skill-card:hover { border-color: var(--accent); transform: scale(1.05); box-shadow: 0 20px 40px -20px rgba(0, 242, 254, 0.2); }
+        .skill-card:hover { transform: scale(1.05); border-color: var(--accent); }
+        .icon-box {
+            width: 70px; height: 70px; background: #0e0e0e; border-radius: 20px;
+            margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2.2rem;
+        }
+        .skill-card h4 { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
         
-        .icon-container {
-            width: 90px; height: 90px;
-            background: #0a0a0a;
-            border-radius: 25px;
-            margin: 0 auto 30px;
-            display: flex; align-items: center; justify-content: center;
-            border: 1px solid #111;
-        }
-        .icon-container i { font-size: 2.8rem; color: var(--accent); }
-        .skill-card h4 { 
-            font-size: 0.8rem; 
-            font-weight: 800; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            padding: 6px 20px;
-            border-radius: 50px;
-            display: inline-block;
-        }
+        /* Icon Specific Colors */
+        .html i { color: var(--html); } .css i { color: var(--css); }
+        .js i { color: var(--js); } .angular i { color: var(--angular); }
+        .python i { color: var(--python); } .ai i { color: var(--accent); }
 
-        /* --- DATA SECTIONS --- */
-        .content-wrapper {
-            max-width: 1200px;
-            margin: 120px auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            padding: 0 20px;
+        /* --- EXPERIENCE & DATA (NO DATA DELETED) --- */
+        .main-content {
+            max-width: 1200px; margin: 100px auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 0 20px;
         }
-        .data-panel { background: #050505; border: 1px solid #111; padding: 50px; border-radius: 40px; }
-        .data-panel h2 { font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 40px; border-left: 5px solid var(--accent); padding-left: 20px; }
-        
-        .exp-item { margin-bottom: 40px; position: relative; }
-        .exp-item h3 { font-size: 1.2rem; margin-bottom: 8px; }
-        .exp-item .date { color: var(--accent); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; margin-bottom: 15px; display: block; }
-        .exp-item p, .exp-item li { color: var(--text-dim); font-size: 0.95rem; line-height: 1.7; margin-bottom: 8px; }
-        ul { list-style: none; }
-        ul li::before { content: "—"; margin-right: 10px; color: var(--accent); font-weight: 800; }
+        .data-panel { background: #050505; border: 1px solid #111; padding: 45px; border-radius: 35px; }
+        .data-panel h2 { color: var(--accent); margin-bottom: 30px; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 2px; }
+        .exp-item { margin-bottom: 30px; padding-left: 20px; border-left: 2px solid #1a1a1a; }
+        .exp-item h3 { font-size: 1.1rem; }
+        .exp-item span { color: var(--accent); font-size: 0.8rem; font-weight: 800; display: block; margin: 5px 0; }
+        .exp-item p, .exp-item li { color: var(--text-dim); font-size: 0.9rem; margin-top: 5px; }
 
-        /* --- CONTACT SECTION (REPLICATING YOUR PHOTO) --- */
-        .contact-box {
-            max-width: 1000px;
-            margin: 150px auto;
-            background: #050505;
-            border-radius: 50px;
-            padding: 100px 60px;
-            border: 1px solid #111;
-            text-align: left;
-        }
-        .contact-box h2 { font-size: clamp(3rem, 6vw, 6rem); font-weight: 800; line-height: 1; margin-bottom: 25px; letter-spacing: -4px; }
-        .email-display { color: var(--accent); font-weight: 800; font-size: 1.1rem; text-transform: lowercase; margin-bottom: 50px; display: block; }
-        
-        .form-control {
-            width: 100%; padding: 22px; background: #000; border: 1px solid #1a1a1a; border-radius: 20px; color: #fff; margin-bottom: 25px; font-size: 1rem; transition: 0.3s;
-        }
-        .form-control:focus { border-color: var(--accent); outline: none; background: #080808; }
-        .btn-submit { width: 100%; background: var(--accent); color: #000; padding: 22px; border: none; border-radius: 20px; font-weight: 800; cursor: pointer; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; }
-        .btn-submit:hover { transform: scale(1.02); filter: brightness(1.1); }
+        /* --- AI DESIGN SLIDER --- */
+        .slider-container { max-width: 1200px; margin: 80px auto; padding: 0 20px; }
+        .slider-box { background: #050505; border-radius: 35px; padding: 50px; border: 1px solid #111; text-align: center; position: relative; }
+        .slides { display: none; }
+        .slide-img { width: 100%; max-height: 450px; object-fit: contain; border-radius: 20px; background: #000; margin-bottom: 20px; }
+        .prev, .next { cursor: pointer; position: absolute; top: 50%; padding: 15px; color: var(--accent); font-weight: bold; font-size: 24px; transition: 0.3s; }
+        .next { right: 20px; } .prev { left: 20px; }
 
-        footer { padding: 100px 20px; text-align: center; border-top: 1px solid #111; margin-top: 100px; }
-
-        @media (max-width: 900px) {
-            .content-wrapper { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 3.5rem; }
-            .contact-box { padding: 50px 30px; }
+        /* --- CONTACT (PROFESSIONAL & EMOTIONAL) --- */
+        .contact-section {
+            max-width: 900px; margin: 120px auto; background: #070707; border-radius: 45px;
+            padding: 80px 50px; border: 1px solid #111; text-align: left;
         }
+        .contact-section h2 { font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; line-height: 1; margin-bottom: 20px; }
+        .email-link { color: var(--accent); font-weight: 800; font-size: 1rem; text-transform: lowercase; margin-bottom: 40px; display: block; }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 20px; background: #000; border: 1px solid #1a1a1a; border-radius: 15px; color: #fff; outline: none; transition: 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
+        .btn-submit { width: 100%; padding: 20px; background: var(--accent); color: #000; border: none; border-radius: 15px; font-weight: 800; cursor: pointer; text-transform: uppercase; transition: 0.3s; }
+
+        footer { padding: 100px 20px; text-align: center; border-top: 1px solid #111; color: var(--text-dim); font-size: 0.8rem; }
+
+        @media (max-width: 800px) { .main-content { grid-template-columns: 1fr; } .hero h1 { font-size: 3rem; } }
     </style>
 </head>
 <body>
@@ -168,144 +128,147 @@
     <nav>
         <div class="logo">SALEM<span>.</span></div>
         <div class="nav-links">
-            <a href="#skills">Stack</a>
+            <a href="#home">Home</a>
+            <a href="#skills">Skills</a>
             <a href="#experience">Experience</a>
-            <a href="#connect">Connect</a>
+            <a href="#designs">Portfolio</a>
         </div>
     </nav>
 
-    <header class="hero">
-        <h1>DESIGNER<br>& DEVELOPER</h1>
-        <p>I am Salem Eid Barhoum, an Informatics Engineer specializing in Software Development. I create high-performance web applications and visual identities that drive results.</p>
-        <a href="#connect" class="btn-action">Start a Project</a>
+    <header class="hero" id="home">
+        <img src="profile.jpeg" alt="Salem Eid Barhoum" class="profile-img">
+        <h1>SALEM EID<br>BARHOUM</h1>
+        <p>Informatics Engineer & Software Developer. Specializing in building high-performance web systems and creative AI-driven designs.</p>
+        
+        <div class="hero-btns">
+            <a href="Salem-Barhoum-CV.pdf" download class="btn btn-cv"><i class="fas fa-file-download"></i> Download CV</a>
+            <a href="https://github.com/salem-barhoum" target="_blank" class="btn btn-git"><i class="fab fa-github"></i> GitHub</a>
+        </div>
     </header>
 
-    <span class="section-label">Expertise</span>
-    <h2 class="section-title">Tech Stack</h2>
+    <section id="skills">
+        <h2 class="section-title">Technical Stack</h2>
+        <div class="skills-grid">
+            <div class="skill-card html"><div class="icon-box"><i class="fab fa-html5"></i></div><h4>HTML5</h4></div>
+            <div class="skill-card css"><div class="icon-box"><i class="fab fa-css3-alt"></i></div><h4>CSS3</h4></div>
+            <div class="skill-card js"><div class="icon-box"><i class="fab fa-js"></i></div><h4>JavaScript</h4></div>
+            <div class="skill-card angular"><div class="icon-box"><i class="fab fa-angular"></i></div><h4>Angular</h4></div>
+            <div class="skill-card python"><div class="icon-box"><i class="fab fa-python"></i></div><h4>Python</h4></div>
+            <div class="skill-card ai"><div class="icon-box"><i class="fas fa-magic"></i></div><h4>AI Design</h4></div>
+        </div>
+    </section>
 
-    <div class="skills-grid" id="skills">
-        <div class="skill-card">
-            <div class="icon-container"><i class="fab fa-html5"></i></div>
-            <h4>HTML5</h4>
-        </div>
-        <div class="skill-card">
-            <div class="icon-container"><i class="fab fa-css3-alt"></i></div>
-            <h4>CSS3</h4>
-        </div>
-        <div class="skill-card">
-            <div class="icon-container"><i class="fab fa-angular"></i></div>
-            <h4>Angular</h4>
-        </div>
-        <div class="skill-card">
-            <div class="icon-container"><i class="fab fa-python"></i></div>
-            <h4>Python</h4>
-        </div>
-        <div class="skill-card">
-            <div class="icon-container"><i class="fas fa-magic"></i></div>
-            <h4>Generative AI</h4>
-        </div>
-    </div>
-
-    <div class="content-wrapper" id="experience">
+    <div class="main-content" id="experience">
         <div class="data-panel">
             <h2>Experience</h2>
-            
             <div class="exp-item">
-                <span class="date">2020 – 2026</span>
                 <h3>IT Support / System Admin / MEAL Officer</h3>
-                <p>Charitable Action Committee</p>
+                <span>Charitable Action Committee | 2020 – 2026</span>
                 <ul>
-                    <li>Provided full IT support and hardware troubleshooting.</li>
-                    <li>Managed network systems, user accounts, and data backups.</li>
-                    <li>Developed evaluation reports for humanitarian projects.</li>
+                    <li>Provided IT support, hardware troubleshooting, and network management.</li>
+                    <li>Prepared project evaluation reports and monitored aid delivery.</li>
                 </ul>
             </div>
-
             <div class="exp-item">
-                <span class="date">2023</span>
                 <h3>Frontend Developer</h3>
-                <p>SKYFY Company</p>
-                <ul>
-                    <li>Built responsive web apps with Angular & TypeScript.</li>
-                    <li>Collaborated with UI/UX teams for pixel-perfect designs.</li>
-                </ul>
+                <span>SKYFY Company | 2023</span>
+                <p>Developed responsive applications using Angular and TypeScript.</p>
             </div>
-
             <div class="exp-item">
-                <span class="date">2018 – 2020</span>
                 <h3>Marketing Officer</h3>
-                <p>Henkel Persil Company</p>
+                <span>Henkel Persil Company | 2018 – 2020</span>
             </div>
-
             <div class="exp-item">
-                <span class="date">2016 – 2018</span>
-                <h3>Electricity Regulator Technician</h3>
-                <p>Mora Company</p>
+                <h3>Electricity Technician</h3>
+                <span>Mora Company | 2016 – 2018</span>
             </div>
         </div>
 
         <div class="data-panel">
             <h2>About & Education</h2>
-            
             <div class="exp-item">
-                <span class="date">University</span>
                 <h3>B.S. Informatics Engineering</h3>
-                <p>Syrian Virtual University (2025-2026)</p>
-                <p>Focusing on modern Software Development architectures.</p>
+                <span>Syrian Virtual University | 2025-2026</span>
+                <p>Specialization in Software Development.</p>
             </div>
-
             <div class="exp-item">
-                <span class="date">Volunteer Work</span>
-                <h3>Software Trainee & Community Support</h3>
-                <p>SSSD & Jesus Light of the World Church</p>
-                <p>Experience in ASP.NET, SQL, and humanitarian aid distribution.</p>
+                <h3>Volunteering</h3>
+                <span>SSSD & Church Projects</span>
+                <p>Software trainee (ASP.NET, SQL) and community support volunteer.</p>
             </div>
-
             <div class="exp-item">
-                <span class="date">Bio</span>
-                <p>A goal-driven engineer based in Damascus. I combine technical informatics with creative marketing experience to build products that are both functional and beautiful.</p>
-            </div>
-
-            <div class="exp-item">
-                <h3>Contact Info</h3>
-                <p><strong>Location:</strong> Jaramana, Damascus, Syria</p>
-                <p><strong>Phone:</strong> +963 992374746</p>
-                <p><strong>Status:</strong> Single | July 4, 1998</p>
+                <h3>Personal Info</h3>
+                <p><strong>Location:</strong> Damascus, Syria</p>
+                <p><strong>Nationality:</strong> Syrian | July 4, 1998</p>
+                <p><strong>Contact:</strong> +963 992374746</p>
             </div>
         </div>
     </div>
 
-    <section class="contact-box" id="connect">
+    <section class="slider-container" id="designs">
+        <div class="slider-box">
+            <h2 style="margin-bottom: 30px;">Featured AI Designs</h2>
+            <div class="slides">
+                <img src="Design1.png" class="slide-img">
+                <h3>Hearth & Harvest Sourdough</h3>
+                <p style="color:var(--text-dim)">High-impact sensory creative focusing on fresh bakery action.</p>
+            </div>
+            <div class="slides">
+                <img src="Design2.png" class="slide-img">
+                <h3>Wildflower Honey</h3>
+                <p style="color:var(--text-dim)">Establishing brand trust through rustic and organic visual aesthetics.</p>
+            </div>
+            <div class="slides">
+                <img src="Design3.png" class="slide-img">
+                <h3>Flour & Field Artisan Pasta</h3>
+                <p style="color:var(--text-dim)">Macro-texture design highlighting premium ingredients.</p>
+            </div>
+            <div class="slides">
+                <img src="Design4.png" class="slide-img">
+                <h3>Nectar Cola</h3>
+                <p style="color:var(--text-dim)">Social-optimized ad design utilizing realistic frost effects.</p>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </section>
+
+    <section class="contact-section" id="connect">
         <h2>LET'S<br>CONNECT</h2>
-        <p>Looking for a developer who understands design? Let's build something that stands out.</p>
-        <span class="email-display">salmbarhoum1@gmail.com</span>
-        
-        <form>
-            <input type="text" class="form-control" placeholder="Your Name">
-            <input type="email" class="form-control" placeholder="Email Address">
-            <textarea class="form-control" rows="6" placeholder="Tell me about your project..."></textarea>
-            <button type="button" class="btn-submit">Send Message</button>
+        <p>I’m currently available for freelance projects and full-time engineering roles.</p>
+        <span class="email-link">salmbarhoum1@gmail.com</span>
+
+        <form action="https://formspree.io/f/salmbarhoum1@gmail.com" method="POST">
+            <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
+            <div class="form-group"><input type="email" name="_replyto" placeholder="Your Email" required></div>
+            <div class="form-group"><textarea name="message" rows="6" placeholder="Project details..." required></textarea></div>
+            <button type="submit" class="btn-submit">Send Message</button>
         </form>
     </section>
 
     <footer>
-        <div class="logo">SALEM<span>.</span></div>
-        <p style="color: var(--text-dim); margin-top: 20px; font-size: 0.8rem; letter-spacing: 1px;">© 2026 Salem Eid Barhoum. All Rights Reserved.</p>
+        <p>© 2026 SALEM EID BARHOUM. ALL RIGHTS RESERVED.</p>
     </footer>
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <script>
-        const sr = ScrollReveal({
-            distance: '60px',
-            duration: 1500,
-            delay: 200,
-            reset: false
+        // Transitions
+        ScrollReveal().reveal('.skill-card, .data-panel, .slider-box', { 
+            delay: 200, distance: '50px', origin: 'bottom', duration: 1200, interval: 100 
         });
 
-        sr.reveal('.hero h1, .hero p', { origin: 'top', interval: 100 });
-        sr.reveal('.skill-card', { origin: 'bottom', interval: 100 });
-        sr.reveal('.data-panel', { origin: 'left', interval: 200 });
-        sr.reveal('.contact-box', { origin: 'bottom' });
+        // Slider Logic
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) { showSlides(slideIndex += n); }
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("slides");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+            slides[slideIndex-1].style.display = "block";  
+        }
     </script>
 </body>
 </html>
