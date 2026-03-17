@@ -15,88 +15,73 @@
             --border: rgba(255, 255, 255, 0.08);
             --text-main: #ffffff;
             --text-dim: #94a3b8;
-            
-            /* Icon Brand Colors */
-            --html: #e34f26;
-            --css: #1572b6;
-            --js: #f7df1e;
-            --angular: #dd0031;
-            --react: #61dafb;
-            --python: #3776ab;
+            --html: #e34f26; --css: #1572b6; --js: #f7df1e; --angular: #dd0031; --react: #61dafb; --python: #3776ab;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        
         body { background-color: var(--bg); color: var(--text-main); overflow-x: hidden; }
 
-        /* --- THE DYNAMIC NAVBAR (Icon-Based & Floating) --- */
+        /* --- CENTERED NAVBAR --- */
         nav {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
             z-index: 1000; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(20px);
-            padding: 15px 40px; border-radius: 100px; border: 1px solid var(--border);
-            display: flex; gap: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-            transition: 0.5s;
+            padding: 15px 30px; border-radius: 100px; border: 1px solid var(--border);
+            display: flex; justify-content: center; align-items: center; gap: 35px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
         }
-        nav a { color: var(--text-dim); text-decoration: none; font-size: 1.2rem; transition: 0.3s; position: relative; }
+        nav a { color: var(--text-dim); text-decoration: none; font-size: 1.2rem; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
         nav a:hover { color: var(--accent); transform: scale(1.2); }
-        nav a span { display: none; position: absolute; top: 40px; left: 50%; transform: translateX(-50%); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--accent); }
-        nav a:hover span { display: block; }
 
         /* --- HERO --- */
         .hero {
-            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 0 20px; background: radial-gradient(circle at 50% 50%, #082f49 0%, #000 85%);
+            min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 120px 20px 60px; background: radial-gradient(circle at 50% 50%, #082f49 0%, #000 85%);
         }
         .profile-img {
             width: 160px; height: 160px; border-radius: 50px; border: 2px solid var(--accent);
-            margin-bottom: 30px; object-fit: cover; box-shadow: 0 0 50px rgba(0, 242, 254, 0.2);
-            animation: float 4s ease-in-out infinite;
+            margin-bottom: 30px; object-fit: cover; animation: float 4s ease-in-out infinite;
         }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-
         .hero h1 { font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; line-height: 0.9; letter-spacing: -4px; margin-bottom: 20px; }
         .hero h1 span { color: var(--accent); }
         
-        .hero-btns { display: flex; gap: 20px; margin-top: 30px; }
+        .hero-btns { display: flex; gap: 20px; margin-bottom: 50px; }
         .btn { 
             padding: 18px 40px; border-radius: 15px; font-weight: 800; text-decoration: none; 
             text-transform: uppercase; font-size: 0.85rem; transition: 0.4s; display: flex; align-items: center; gap: 12px;
         }
-        .btn-cv { background: var(--accent); color: #000; box-shadow: 0 0 20px rgba(0, 242, 254, 0.3); }
+        .btn-cv { background: var(--accent); color: #000; }
         .btn-git { border: 1px solid var(--border); color: #fff; background: rgba(255,255,255,0.03); }
-        .btn:hover { transform: translateY(-5px) scale(1.05); }
 
-        /* --- COLORFUL EMOTIONAL BENTO GRID --- */
-        .section-title { text-align: center; margin: 120px 0 60px; font-size: 3.5rem; font-weight: 800; letter-spacing: -2px; }
-        .skills-grid {
-            max-width: 1200px; margin: 0 auto; display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; padding: 0 20px;
+        /* --- TOP PERSONAL INFO (EMOTIONAL DESIGN) --- */
+        .top-info {
+            max-width: 800px; width: 100%; background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border); border-radius: 30px; padding: 30px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;
+            backdrop-filter: blur(10px); margin-top: 20px;
         }
+        .info-card { text-align: center; }
+        .info-card i { color: var(--accent); font-size: 1.2rem; margin-bottom: 10px; display: block; }
+        .info-card span { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-dim); }
+        .info-card p { font-weight: 600; font-size: 0.95rem; margin-top: 5px; }
+
+        /* --- SKILLS GRID (ANIMATED) --- */
+        .section-title { text-align: center; margin: 120px 0 60px; font-size: 3.5rem; font-weight: 800; }
+        .skills-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; padding: 0 20px; }
         .skill-card {
             background: #050505; border: 1px solid var(--border); border-radius: 40px;
             padding: 50px 30px; text-align: center; position: relative; overflow: hidden;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        
-        /* The Moving Color Animation for every div */
         .skill-card::after {
             content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
             background: conic-gradient(transparent, var(--icon-color), transparent 30%);
             animation: rotate 6s linear infinite; opacity: 0.1; z-index: 1;
         }
         @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
         .icon-box {
-            width: 85px; height: 85px; background: #0a0a0a; border-radius: 25px;
-            margin: 0 auto 25px; display: flex; align-items: center; justify-content: center; 
-            font-size: 2.8rem; position: relative; z-index: 2; border: 1px solid rgba(255,255,255,0.05);
-            animation: pulse-color 3s ease-in-out infinite;
+            width: 85px; height: 85px; background: #0a0a0a; border-radius: 25px; margin: 0 auto 25px;
+            display: flex; align-items: center; justify-content: center; font-size: 2.8rem; position: relative; z-index: 2;
         }
-        @keyframes pulse-color { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
-
-        .skill-card h4 { position: relative; z-index: 2; font-size: 0.9rem; font-weight: 800; letter-spacing: 1px; color: var(--text-dim); }
-
-        /* Card Branding */
         .html { --icon-color: var(--html); } .html i { color: var(--html); }
         .css { --icon-color: var(--css); } .css i { color: var(--css); }
         .js { --icon-color: var(--js); } .js i { color: var(--js); }
@@ -105,73 +90,59 @@
         .python { --icon-color: var(--python); } .python i { color: var(--python); }
         .ai { --icon-color: var(--accent); } .ai i { color: var(--accent); }
 
-        /* --- THE FULL DATA SECTION (RESTORED) --- */
-        .main-content {
-            max-width: 1200px; margin: 100px auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 0 20px;
-        }
-        .data-panel { background: #050505; border: 1px solid #111; padding: 50px; border-radius: 40px; position: relative; }
-        .data-panel::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100px; background: var(--accent); border-radius: 10px; }
-        
-        .data-panel h2 { font-size: 1.5rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 30px; }
+        /* --- DATA SECTIONS --- */
+        .main-content { max-width: 1200px; margin: 100px auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 0 20px; }
+        .data-panel { background: #050505; border: 1px solid #111; padding: 50px; border-radius: 40px; }
+        .data-panel h2 { font-size: 1.5rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 30px; color: var(--accent); }
         .exp-block { margin-bottom: 40px; }
-        .exp-block h3 { font-size: 1.3rem; margin-bottom: 5px; color: #fff; }
+        .exp-block h3 { font-size: 1.3rem; margin-bottom: 5px; }
         .exp-block span { color: var(--accent); font-weight: 800; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 15px; }
-        .exp-block p, .exp-block li { color: var(--text-dim); font-size: 0.95rem; line-height: 1.8; margin-bottom: 10px; }
-        ul { list-style: none; padding-left: 0; }
-        ul li::before { content: "→"; margin-right: 10px; color: var(--accent); }
+        ul { list-style: none; } ul li::before { content: "→"; margin-right: 10px; color: var(--accent); }
 
-        /* --- DESIGN GALLERY --- */
-        .gallery-container { max-width: 1200px; margin: 100px auto; padding: 0 20px; }
-        .gallery-box { background: #050505; border-radius: 40px; padding: 60px; border: 1px solid #111; text-align: center; position: relative; }
+        /* --- GALLERY --- */
+        .gallery-box { max-width: 1200px; margin: 100px auto; background: #050505; border-radius: 40px; padding: 60px; border: 1px solid #111; text-align: center; position: relative; }
         .slides { display: none; animation: fadeEffect 1s; }
         @keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} }
-        .slide-img { width: 100%; max-height: 500px; object-fit: contain; border-radius: 30px; margin-bottom: 30px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
-        .nav-btn { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); padding: 20px; color: var(--accent); font-size: 30px; transition: 0.3s; }
-        .nav-btn:hover { color: #fff; scale: 1.2; }
+        .slide-img { width: 100%; max-height: 500px; object-fit: contain; border-radius: 30px; margin-bottom: 30px; }
+        .nav-btn { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); padding: 20px; color: var(--accent); font-size: 30px; }
         .next { right: 30px; } .prev { left: 30px; }
 
-        /* --- CONNECT (MOHANAD STYLE) --- */
-        .connect-box {
-            max-width: 1000px; margin: 150px auto; background: #070707; border-radius: 60px;
-            padding: 100px 80px; border: 1px solid #111;
-        }
+        /* --- CONNECT --- */
+        .connect-box { max-width: 1000px; margin: 150px auto; background: #070707; border-radius: 60px; padding: 100px 80px; border: 1px solid #111; }
         .connect-box h2 { font-size: clamp(3rem, 7vw, 6rem); font-weight: 800; line-height: 0.8; letter-spacing: -5px; margin-bottom: 30px; }
-        .email-footer { color: var(--accent); font-weight: 800; font-size: 1.1rem; text-transform: lowercase; margin-bottom: 60px; display: block; }
-
         .form-row { margin-bottom: 25px; }
-        .form-row input, .form-row textarea {
-            width: 100%; padding: 25px; background: #000; border: 1px solid #1a1a1a; border-radius: 20px; color: #fff; font-size: 1rem; transition: 0.4s;
-        }
-        .form-row input:focus, .form-row textarea:focus { border-color: var(--accent); background: #0a0a0a; }
-        .send-btn { width: 100%; padding: 25px; background: var(--accent); color: #000; border: none; border-radius: 20px; font-weight: 800; font-size: 1.1rem; cursor: pointer; text-transform: uppercase; transition: 0.3s; }
+        .form-row input, .form-row textarea { width: 100%; padding: 25px; background: #000; border: 1px solid #1a1a1a; border-radius: 20px; color: #fff; }
+        .send-btn { width: 100%; padding: 25px; background: var(--accent); color: #000; border: none; border-radius: 20px; font-weight: 800; cursor: pointer; text-transform: uppercase; }
 
-        footer { padding: 100px 20px; text-align: center; border-top: 1px solid #111; font-weight: 800; color: var(--text-dim); letter-spacing: 2px; }
+        footer { padding: 80px; text-align: center; border-top: 1px solid #111; color: var(--text-dim); font-weight: 800; letter-spacing: 2px; }
 
-        @media (max-width: 900px) {
-            .main-content { grid-template-columns: 1fr; }
-            .connect-box { padding: 60px 30px; }
-            nav { width: 90%; gap: 15px; }
-        }
+        @media (max-width: 900px) { .main-content { grid-template-columns: 1fr; } .connect-box { padding: 60px 30px; } }
     </style>
 </head>
 <body>
 
-    <nav id="navbar">
-        <a href="#home"><i class="fas fa-home"></i><span>Home</span></a>
-        <a href="#skills"><i class="fas fa-layer-group"></i><span>Stack</span></a>
-        <a href="#experience"><i class="fas fa-briefcase"></i><span>Exp</span></a>
-        <a href="#designs"><i class="fas fa-palette"></i><span>Works</span></a>
-        <a href="#connect"><i class="fas fa-envelope"></i><span>Contact</span></a>
+    <nav>
+        <a href="#home"><i class="fas fa-home"></i></a>
+        <a href="#skills"><i class="fas fa-layer-group"></i></a>
+        <a href="#experience"><i class="fas fa-briefcase"></i></a>
+        <a href="#designs"><i class="fas fa-palette"></i></a>
+        <a href="#connect"><i class="fas fa-envelope"></i></a>
     </nav>
 
     <header class="hero" id="home">
         <img src="profile.jpeg" alt="Salem Eid Barhoum" class="profile-img">
         <h1>SALEM EID<br><span>BARHOUM</span></h1>
-        <p style="color: var(--text-dim); max-width: 700px; margin-bottom: 20px;">Informatics Engineer specializing in Software Development. I build scalable digital solutions with deep emotional design and professional precision.</p>
         
         <div class="hero-btns">
             <a href="Salem-Barhoum-CV.pdf" download class="btn btn-cv"><i class="fas fa-download"></i> Download CV</a>
             <a href="https://github.com/salem-barhoum" target="_blank" class="btn btn-git"><i class="fab fa-github"></i> GitHub Profile</a>
+        </div>
+
+        <div class="top-info">
+            <div class="info-card"><i class="fas fa-envelope"></i><span>Email</span><p>salmbarhoum1@gmail.com</p></div>
+            <div class="info-card"><i class="fas fa-phone"></i><span>Call Me</span><p>+963 992374746</p></div>
+            <div class="info-card"><i class="fas fa-map-marker-alt"></i><span>Location</span><p>Damascus, Syria</p></div>
+            <div class="info-card"><i class="fas fa-user-graduate"></i><span>Status</span><p>Informatics Engineer</p></div>
         </div>
     </header>
 
@@ -191,89 +162,54 @@
     <div class="main-content" id="experience">
         <div class="data-panel">
             <h2>Work History</h2>
-            
             <div class="exp-block">
                 <h3>IT Support / System Admin / MEAL Officer</h3>
                 <span>Charitable Action Committee | 2020 – 2026</span>
                 <ul>
-                    <li>Provided IT support for staff, troubleshooting hardware and software issues.</li>
-                    <li>Managed system administration tasks: user accounts, networks, and backups.</li>
-                    <li>Monitored project performance, collected data, and prepared evaluation reports.</li>
-                    <li>Conducted field monitoring and assessments of humanitarian aid projects.</li>
-                    <li>Gathered beneficiary feedback to improve project delivery.</li>
+                    <li>Provided IT support, hardware troubleshooting, and network management.</li>
+                    <li>Managed system administration, user accounts, and data backups.</li>
+                    <li>Monitored project performance and prepared evaluation reports.</li>
+                    <li>Conducted field monitoring and assessments for aid projects.</li>
                 </ul>
             </div>
-
             <div class="exp-block">
                 <h3>Frontend Developer (Online)</h3>
                 <span>SKYFY Company | 2023</span>
                 <ul>
-                    <li>Developed responsive applications using Angular, TS, JS, HTML, and CSS.</li>
-                    <li>Optimized applications for performance and cross-browser compatibility.</li>
+                    <li>Developed responsive applications using Angular, TS, and CSS.</li>
                     <li>Collaborated with UI/UX designers for professional interfaces.</li>
                 </ul>
             </div>
-
-            <div class="exp-block">
-                <h3>Marketing Officer</h3>
-                <span>Henkel Persil Company | 2018 – 2020</span>
-                <p>Developed marketing campaigns, conducted market research, and managed social media channels.</p>
-            </div>
-
-            <div class="exp-block">
-                <h3>Electricity Regulator Technician</h3>
-                <span>Mora Company | 2016 – 2018</span>
-                <p>Installed, assembled, and tested electrical regulators with quality checks.</p>
-            </div>
+            <div class="exp-block"><h3>Marketing Officer</h3><span>Henkel Persil | 2018–2020</span></div>
+            <div class="exp-block"><h3>Electricity Technician</h3><span>Mora Company | 2016–2018</span></div>
         </div>
 
         <div class="data-panel">
             <h2>Profile & Bio</h2>
-            
+            <div class="exp-block"><h3>B.S. Informatics Engineering</h3><span>Syrian Virtual University | 2025–2026</span></div>
+            <div class="exp-block"><h3>Volunteer Trainee</h3><span>SSSD | 2024</span><p>Training in ASP.NET, C#, SQL, and Bootstrap.</p></div>
             <div class="exp-block">
-                <h3>B.S. Informatics Engineering</h3>
-                <span>Syrian Virtual University | 2025 – 2026</span>
-                <p>Specialization in Software Development and Engineering Architectures.</p>
+                <h3>Personal Info</h3>
+                <p><strong>Born:</strong> July 4, 1998</p>
+                <p><strong>Nationality:</strong> Syrian</p>
+                <p><strong>Skills:</strong> MS Office, Networking, AI Optimization.</p>
             </div>
-
-            <div class="exp-block">
-                <h3>Volunteer Software Trainee</h3>
-                <span>SSSD | 2024</span>
-                <p>Intensive training in ASP.NET, C#, Entity Framework, Bootstrap, and SQL.</p>
-            </div>
-
-            <div class="exp-block">
-                <h3>Personal Information</h3>
-                <p><strong>Born:</strong> July 4, 1998 | Damascus, Syria</p>
-                <p><strong>Status:</strong> Single | informatics Engineer</p>
-                <p><strong>Skills:</strong> MS Office, Networking, Hardware maintenance, AI Workflow Optimization.</p>
-            </div>
-
-            <div class="exp-block">
-                <h3>Objective</h3>
-                <p>To work in a progressive organization offering challenging work that will enhance my knowledge, utilizing my skills to reach company goals and personal growth.</p>
-            </div>
+            <div class="exp-block"><h3>Objective</h3><p>To utilize engineering skills in a progressive organization to enhance knowledge and reach company goals.</p></div>
         </div>
     </div>
 
-    <section class="gallery-container" id="designs">
-        <div class="gallery-box">
-            <h2 style="margin-bottom: 40px; font-weight: 800;">Featured AI Portfolio</h2>
-            <div class="slides"><img src="Design1.png" class="slide-img"><h3>Hearth & Harvest</h3><p>Sensory creative for fresh bakery branding.</p></div>
-            <div class="slides"><img src="Design2.png" class="slide-img"><h3>Wildflower Honey</h3><p>Rustic visual aesthetics for organic products.</p></div>
-            <div class="slides"><img src="Design3.png" class="slide-img"><h3>Artisan Pasta</h3><p>Macro-texture design highlighting craftsmanship.</p></div>
-            <div class="slides"><img src="Design4.png" class="slide-img"><h3>Nectar Cola</h3><p>Social-optimized ad design with carbonation effects.</p></div>
-            
-            <a class="nav-btn prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="nav-btn next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
+    <section class="gallery-box" id="designs">
+        <h2 style="margin-bottom: 40px;">Featured AI Portfolio</h2>
+        <div class="slides"><img src="Design1.png" class="slide-img"><h3>Hearth & Harvest</h3></div>
+        <div class="slides"><img src="Design2.png" class="slide-img"><h3>Wildflower Honey</h3></div>
+        <div class="slides"><img src="Design3.png" class="slide-img"><h3>Artisan Pasta</h3></div>
+        <div class="slides"><img src="Design4.png" class="slide-img"><h3>Nectar Cola</h3></div>
+        <a class="nav-btn prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="nav-btn next" onclick="plusSlides(1)">&#10095;</a>
     </section>
 
     <section class="connect-box" id="connect">
         <h2>LET'S<br>WORK</h2>
-        <p style="color: var(--text-dim); margin-bottom: 20px;">I'm ready for the next challenge. Let's create something powerful.</p>
-        <span class="email-footer">salmbarhoum1@gmail.com</span>
-
         <form action="https://formspree.io/f/salmbarhoum1@gmail.com" method="POST">
             <div class="form-row"><input type="text" name="name" placeholder="Full Name" required></div>
             <div class="form-row"><input type="email" name="email" placeholder="Email Address" required></div>
@@ -282,39 +218,17 @@
         </form>
     </section>
 
-    <footer>
-        SALEM EID BARHOUM &copy; 2026 | BUILT FOR THE FUTURE
-    </footer>
+    <footer>SALEM EID BARHOUM &copy; 2026</footer>
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <script>
-        // Transition Magic
-        ScrollReveal().reveal('.skill-card, .data-panel, .gallery-box', { 
-            delay: 300, distance: '60px', origin: 'bottom', duration: 1500, interval: 150 
-        });
-
-        // Sticky Nav Move Effect
-        window.onscroll = function() {
-            let nav = document.getElementById("navbar");
-            if (window.pageYOffset > 100) {
-                nav.style.background = "rgba(0, 0, 0, 0.95)";
-                nav.style.top = "10px";
-            } else {
-                nav.style.background = "rgba(10, 10, 10, 0.8)";
-                nav.style.top = "20px";
-            }
-        };
-
-        // Slider Logic
-        let slideIndex = 1;
-        showSlides(slideIndex);
+        ScrollReveal().reveal('.skill-card, .data-panel, .gallery-box', { delay: 300, distance: '50px', origin: 'bottom', duration: 1500, interval: 150 });
+        let slideIndex = 1; showSlides(slideIndex);
         function plusSlides(n) { showSlides(slideIndex += n); }
         function showSlides(n) {
-            let i;
             let slides = document.getElementsByClassName("slides");
-            if (n > slides.length) {slideIndex = 1}    
-            if (n < 1) {slideIndex = slides.length}
-            for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+            if (n > slides.length) slideIndex = 1; if (n < 1) slideIndex = slides.length;
+            for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
             slides[slideIndex-1].style.display = "block";  
         }
     </script>
