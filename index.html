@@ -56,7 +56,7 @@
         .btn-git { border: 1px solid var(--border); color: #fff; background: rgba(255,255,255,0.03); }
         .btn:hover { transform: translateY(-5px); filter: brightness(1.2); }
 
-        /* --- UNIFIED PERSONAL INFO BLOCK (ALL DATA HERE) --- */
+        /* --- UNIFIED PERSONAL INFO BLOCK --- */
         .personal-card-main {
             max-width: 1100px; width: 100%; background: linear-gradient(145deg, #050505, #0a0a0a);
             border: 1px solid var(--border); border-radius: 40px; padding: 50px;
@@ -93,7 +93,7 @@
         .python { --icon-color: var(--python); } .python i { color: var(--python); }
         .ai { --icon-color: var(--accent); } .ai i { color: var(--accent); }
 
-        /* --- BIG DATA SECTIONS (RESTORED FULL CONTENT) --- */
+        /* --- BIG DATA SECTIONS --- */
         .content-flow { max-width: 1200px; margin: 100px auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 0 20px; }
         .panel { background: #050505; border: 1px solid #111; padding: 55px; border-radius: 45px; }
         .panel h2 { font-size: 1.6rem; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 40px; color: var(--accent); border-bottom: 1px solid #111; padding-bottom: 15px; }
@@ -105,39 +105,45 @@
         .entry ul { list-style: none; padding-top: 10px; }
         .entry ul li::before { content: '•'; margin-right: 12px; color: var(--accent); }
 
-        /* --- PROFESSIONAL VIDEO SECTION --- */
-        .video-section { max-width: 1300px; margin: 150px auto; padding: 0 20px; }
+        /* --- UPDATED PROFESSIONAL VIDEO SECTION (LARGER SIZE) --- */
+        .video-section { max-width: 1400px; margin: 150px auto; padding: 0 20px; }
         .video-card-premium {
             background: linear-gradient(145deg, #050505, #0a0a0a);
             border: 1px solid var(--border);
             border-radius: 60px;
-            padding: 80px;
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 80px;
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
             align-items: center;
+            text-align: center;
             position: relative;
             box-shadow: 0 50px 100px rgba(0,0,0,0.8);
         }
+        .video-text-content { max-width: 900px; margin-bottom: 60px; }
+        .video-text-content h2 { font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 800; letter-spacing: -3px; margin-bottom: 25px; line-height: 1.1; }
+        .video-text-content h2 span { color: var(--accent); display: block; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 10px; }
+        .video-description { font-size: 1.2rem; color: var(--text-dim); line-height: 1.8; margin-bottom: 0; }
+        
         .video-frame {
+            width: 100%;
+            max-width: 1100px; /* Force larger video width */
             position: relative;
-            border-radius: 30px;
-            padding: 10px;
+            border-radius: 40px;
+            padding: 15px;
             background: linear-gradient(145deg, #111, #000);
             border: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 20px rgba(0, 242, 254, 0.1);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 40px rgba(0, 242, 254, 0.15);
             transition: 0.5s;
+            margin-bottom: 50px;
         }
-        .video-frame:hover { transform: scale(1.02) translateY(-10px); }
-        .video-frame video { width: 100%; border-radius: 20px; display: block; }
-        .video-text-content h2 { font-size: 4rem; font-weight: 800; letter-spacing: -3px; margin-bottom: 25px; line-height: 1; }
-        .video-text-content h2 span { color: var(--accent); display: block; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 10px; }
-        .video-description { font-size: 1.1rem; color: var(--text-dim); line-height: 1.8; margin-bottom: 40px; }
-        .tech-pill-container { display: flex; flex-wrap: wrap; gap: 12px; }
+        .video-frame:hover { transform: scale(1.02); box-shadow: 0 0 60px rgba(0, 242, 254, 0.25); }
+        .video-frame video { width: 100%; border-radius: 25px; display: block; }
+        
+        .tech-pill-container { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
         .tech-pill {
-            background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 10px 20px;
-            border-radius: 15px; font-size: 0.85rem; font-weight: 700; color: #fff; transition: 0.3s;
-            display: flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 12px 25px;
+            border-radius: 100px; font-size: 0.95rem; font-weight: 700; color: #fff; transition: 0.3s;
+            display: flex; align-items: center; gap: 10px;
         }
         .tech-pill:hover { background: rgba(0, 242, 254, 0.1); border-color: var(--accent); color: var(--accent); }
 
@@ -161,7 +167,7 @@
         footer { padding: 100px; text-align: center; border-top: 1px solid #111; color: var(--text-dim); font-weight: 800; letter-spacing: 3px; font-size: 0.9rem; }
 
         @media (max-width: 1100px) { 
-            .video-card-premium { grid-template-columns: 1fr; padding: 40px; text-align: center; gap: 40px; }
+            .video-card-premium { padding: 40px 20px; }
             .content-flow { grid-template-columns: 1fr; } 
             .connect-box { padding: 60px 20px; } 
             nav { width: 95%; gap: 20px; } 
@@ -286,7 +292,7 @@
         </div>
     </div>
 
-<section class="video-section" id="masar">
+    <section class="video-section" id="masar">
         <div class="video-card-premium">
             <div class="video-text-content">
                 <h2><span>Software Development</span>MASAR WEBSITE</h2>
