@@ -137,8 +137,17 @@
             margin-bottom: 50px;
         }
         .video-frame:hover { transform: scale(1.02); box-shadow: 0 0 60px rgba(0, 242, 254, 0.25); }
-        .video-frame video { width: 100%; border-radius: 25px; display: block; }
         
+        .video-frame video {
+                width: 100%;
+                border-radius: 25px;
+                display: block;
+                /* --- THE QUALITY BOOSTERS --- */
+                filter: contrast(1.05) brightness(1.02) saturate(1.1); /* Slight punch to colors */
+                image-rendering: high-quality; /* Tells the browser to use best scaling */
+                -webkit-backface-visibility: hidden; /* Prevents flickering during scroll */
+                transform: translateZ(0); /* Forces Hardware Acceleration (GPU) */
+            }
         .tech-pill-container { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
         .tech-pill {
             background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 12px 25px;
@@ -302,7 +311,7 @@
             </div>
 
             <div class="video-frame">
-                <video controls preload="auto" playsinline>
+                <video controls preload="auto" playsinline muted loop autoplay style="image-rendering: -webkit-optimize-contrast; object-fit: cover;">
                     <source src="MASAR.mp4" type="video/mp4">
                     Your browser does not support HD video.
                 </video>
