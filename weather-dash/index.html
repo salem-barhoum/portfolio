@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+    <div class="sky-overlay" id="skyOverlay"></div>
+    
+    <div class="glass-container">
+        <div class="search-bar">
+            <input type="text" id="cityInput" placeholder="Analyze City Weather..." autocomplete="off">
+            <button id="searchBtn"><i class="fas fa-bolt"></i></button>
+        </div>
+
+        <div class="main-display">
+            <div class="weather-icon-wrapper">
+                <img src="https://openweathermap.org/img/wn/01d@4x.png" id="weatherIcon" alt="Condition">
+            </div>
+            <h1 id="temp">--°</h1>
+            <h2 id="cityName">Initializing...</h2>
+            <p id="description">Global Weather System Active</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-item">
+                <i class="fas fa-droplet"></i>
+                <span id="humidity">--%</span>
+                <label>Humidity</label>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-wind"></i>
+                <span id="wind">-- km/h</span>
+                <label>Wind Velocity</label>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-compress-arrows-alt"></i>
+                <span id="pressure">-- hPa</span>
+                <label>Pressure</label>
+            </div>
+        </div>
+        <p id="status-log"></p>
+    </div>
+
+    <script src="weather.js"></script>
+</body>
+</html>
