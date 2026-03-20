@@ -21,7 +21,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
         body { background-color: var(--bg); color: var(--text-main); overflow-x: hidden; }
 
-        /* --- PERFECT CENTERED NAVBAR --- */
         nav {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
             z-index: 1000; background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(25px);
@@ -32,7 +31,6 @@
         nav a { color: var(--text-dim); text-decoration: none; font-size: 1.3rem; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         nav a:hover { color: var(--accent); transform: scale(1.3) translateY(-2px); }
 
-        /* --- HERO SECTION --- */
         .hero {
             min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; padding: 140px 20px 40px; background: radial-gradient(circle at 50% 50%, #082f49 0%, #000 90%);
@@ -56,7 +54,6 @@
         .btn-git { border: 1px solid var(--border); color: #fff; background: rgba(255,255,255,0.03); }
         .btn:hover { transform: translateY(-5px); filter: brightness(1.2); }
 
-        /* --- UNIFIED PERSONAL INFO BLOCK --- */
         .personal-card-main {
             max-width: 1100px; width: 100%; background: linear-gradient(145deg, #050505, #0a0a0a);
             border: 1px solid var(--border); border-radius: 40px; padding: 50px;
@@ -69,7 +66,6 @@
         .info-item span { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-dim); font-weight: 800; }
         .info-item p { font-weight: 600; font-size: 1.05rem; margin-top: 8px; color: #fff; }
 
-        /* --- SKILLS BENTO --- */
         .section-header { text-align: center; margin: 120px 0 60px; }
         .section-header h2 { font-size: 3.5rem; font-weight: 800; letter-spacing: -2px; }
         .skills-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; padding: 0 20px; }
@@ -93,7 +89,6 @@
         .python { --icon-color: var(--python); } .python i { color: var(--python); }
         .ai { --icon-color: var(--accent); } .ai i { color: var(--accent); }
 
-        /* --- BIG DATA SECTIONS --- */
         .content-flow { max-width: 1200px; margin: 100px auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 0 20px; }
         .panel { background: #050505; border: 1px solid #111; padding: 55px; border-radius: 45px; }
         .panel h2 { font-size: 1.6rem; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 40px; color: var(--accent); border-bottom: 1px solid #111; padding-bottom: 15px; }
@@ -105,7 +100,6 @@
         .entry ul { list-style: none; padding-top: 10px; }
         .entry ul li::before { content: '•'; margin-right: 12px; color: var(--accent); }
 
-        /* --- UPDATED PROFESSIONAL VIDEO SECTION (LARGER SIZE) --- */
         .video-section { max-width: 1400px; margin: 150px auto; padding: 0 20px; }
         .video-card-premium {
             background: linear-gradient(145deg, #050505, #0a0a0a);
@@ -126,7 +120,7 @@
         
         .video-frame {
             width: 100%;
-            max-width: 1100px; /* Force larger video width */
+            max-width: 1100px;
             position: relative;
             border-radius: 40px;
             padding: 15px;
@@ -142,20 +136,13 @@
             width: 100%;
             border-radius: 25px;
             display: block;
-            
-            /* Forces the browser to use the best possible scaling algorithm */
             image-rendering: -webkit-optimize-contrast;
             image-rendering: high-quality;
-            
-            /* Hardware Acceleration: Moves video processing to the GPU */
             transform: translateZ(0);
             backface-visibility: hidden;
-            
-            /* Visual Sharpening */
             filter: contrast(1.02) brightness(1.02);
         }
 
-        /* --- WEATHER PREVIEW BOX --- */
         .weather-preview {
             width: 100%; max-width: 1100px;
             background: rgba(255,255,255,0.02);
@@ -173,7 +160,6 @@
         }
         .tech-pill:hover { background: rgba(0, 242, 254, 0.1); border-color: var(--accent); color: var(--accent); }
 
-        /* --- ENLARGED PORTFOLIO SLIDER --- */
         .portfolio-section { max-width: 1300px; margin: 120px auto; padding: 0 20px; }
         .big-slider { background: #050505; border-radius: 50px; padding: 80px 40px; border: 1px solid #111; text-align: center; position: relative; }
         .slides { display: none; animation: zoomIn 0.8s; }
@@ -183,12 +169,26 @@
         .nav-btn:hover { color: #fff; scale: 1.2; }
         .next { right: 20px; } .prev { left: 20px; }
 
-        /* --- CONNECT --- */
         .connect-box { max-width: 1000px; margin: 150px auto; background: #070707; border-radius: 60px; padding: 100px 80px; border: 1px solid #111; }
         .connect-box h2 { font-size: clamp(3rem, 7vw, 6rem); font-weight: 800; line-height: 0.8; letter-spacing: -5px; margin-bottom: 40px; }
         .form-input { width: 100%; padding: 25px; background: #000; border: 1px solid #1a1a1a; border-radius: 20px; color: #fff; font-size: 1.1rem; margin-bottom: 25px; transition: 0.4s; }
         .form-input:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 20px rgba(0,242,254,0.1); }
         .submit-btn { width: 100%; padding: 25px; background: var(--accent); color: #000; border: none; border-radius: 20px; font-weight: 800; font-size: 1.2rem; cursor: pointer; text-transform: uppercase; transition: 0.3s; }
+
+        .wa-container { margin-top: 50px; display: flex; justify-content: center; }
+        .whatsapp-btn {
+            display: inline-flex; align-items: center; gap: 15px; padding: 20px 40px;
+            background: rgba(37, 211, 102, 0.1); border: 1px solid rgba(37, 211, 102, 0.3);
+            border-radius: 25px; color: #fff; text-decoration: none; font-weight: 800;
+            text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px;
+            transition: 0.4s; backdrop-filter: blur(10px);
+        }
+        .whatsapp-btn i { font-size: 1.8rem; color: #25D366; }
+        .whatsapp-btn:hover {
+            background: #25D366; color: #000; transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(37, 211, 102, 0.3);
+        }
+        .whatsapp-btn:hover i { color: #000; }
 
         footer { padding: 100px; text-align: center; border-top: 1px solid #111; color: var(--text-dim); font-weight: 800; letter-spacing: 3px; font-size: 0.9rem; }
 
@@ -410,13 +410,22 @@
             <textarea name="message" class="form-input" rows="6" placeholder="Project details or Inquiry..." required></textarea>
             <button type="submit" class="submit-btn">Send Message Directly</button>
         </form>
+
+        <div class="wa-container">
+            <a href="https://wa.me/963992374746?text=Hello%20Salem,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect." 
+               target="_blank" 
+               class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i>
+                <span>Direct Channel: WhatsApp</span>
+            </a>
+        </div>
     </section>
 
     <footer>SALEM EID BARHOUM &bull; 2026 &bull;</footer>
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <script>
-        ScrollReveal().reveal('.skill-card, .panel, .personal-card-main, .video-card-premium, .weather-preview', { 
+        ScrollReveal().reveal('.skill-card, .panel, .personal-card-main, .video-card-premium, .weather-preview, .wa-container', { 
             delay: 200, distance: '60px', origin: 'bottom', duration: 1500, interval: 150 
         });
 
