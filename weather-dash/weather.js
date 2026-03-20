@@ -1,4 +1,4 @@
-const apiKey = "YOUR_OPENWEATHER_API_KEY"; 
+const apiKey = "67419cd209b907296e056003e61d7faf"; 
 
 
 async function updateWeather(city) {
