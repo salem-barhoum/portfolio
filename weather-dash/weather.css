@@ -1,0 +1,66 @@
+:root {
+    --accent: #00f2fe;
+    --bg: #000000;
+    --card: rgba(5, 5, 5, 0.6);
+    --border: rgba(255, 255, 255, 0.08);
+}
+
+body {
+    margin: 0; background: var(--bg); color: #fff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    height: 100vh; display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+}
+
+.sky-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, #082f49 0%, #000 100%);
+    z-index: -1; transition: 1s ease;
+}
+
+.glass-container {
+    width: 90%; max-width: 500px;
+    background: var(--card);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid var(--border);
+    border-radius: 50px; padding: 50px;
+    box-shadow: 0 50px 100px rgba(0,0,0,0.9);
+    text-align: center;
+}
+
+.search-bar {
+    display: flex; background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border); border-radius: 20px;
+    padding: 5px 10px; margin-bottom: 40px;
+}
+
+.search-bar input {
+    background: none; border: none; outline: none; color: white;
+    width: 100%; padding: 15px; font-weight: 600;
+}
+
+.search-bar button {
+    background: var(--accent); color: #000; border: none;
+    width: 50px; height: 50px; border-radius: 15px; cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-bar button:hover { transform: scale(1.1); box-shadow: 0 0 20px var(--accent); }
+
+#temp { font-size: 6rem; font-weight: 800; letter-spacing: -4px; margin: 10px 0; color: var(--accent); }
+#cityName { font-size: 1.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
+#description { color: #94a3b8; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; margin-bottom: 30px; }
+
+.stats-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    border-top: 1px solid var(--border); padding-top: 30px; gap: 15px;
+}
+
+.stat-item i { color: var(--accent); display: block; margin-bottom: 10px; font-size: 1.2rem; }
+.stat-item span { display: block; font-weight: 800; font-size: 1rem; }
+.stat-item label { font-size: 0.65rem; color: #94a3b8; text-transform: uppercase; font-weight: 700; }
+
+/* Dynamic States */
+.rainy-bg { background: radial-gradient(circle at 50% 50%, #1e293b 0%, #000 100%) !important; }
+.sunny-bg { background: radial-gradient(circle at 50% 50%, #0c4a6e 0%, #000 100%) !important; }
